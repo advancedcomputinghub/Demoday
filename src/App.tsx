@@ -96,13 +96,18 @@ export default function App() {
       {/* Navigation */}
       <nav className="fixed top-0 w-full z-50 bg-[#0a0a0f]/80 backdrop-blur-xl border-b border-white/5">
         <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
-          <div className="flex items-center gap-3">
-            <img src="/uw-logo-shield.png" alt="University of Windsor" className="h-10 w-10 shrink-0 object-contain" />
+          <button
+            type="button"
+            onClick={() => scrollToSection('hero')}
+            className="flex items-center gap-3 text-left cursor-pointer transition-opacity hover:opacity-90 focus:outline-none focus-visible:ring-2 focus-visible:ring-purple-500/50 focus-visible:ring-offset-2 focus-visible:ring-offset-[#0a0a0f] rounded-lg"
+            aria-label="Back to top"
+          >
+            <img src="/uw-logo-shield.png" alt="" className="h-10 w-10 shrink-0 object-contain" />
             <div className="flex flex-col">
               <span className="font-semibold text-lg leading-tight">CS Demo Day</span>
               <span className="text-xs text-gray-400">University of Windsor</span>
             </div>
-          </div>
+          </button>
           <div className="hidden md:flex items-center gap-8">
             <button
               onClick={() => scrollToSection('about')}
@@ -364,7 +369,7 @@ export default function App() {
           </div>
 
           <div className="grid md:grid-cols-2 gap-4 md:gap-6 flex-1 min-h-0 overflow-y-auto mb-4 md:mb-6">
-            <div className="p-5 md:p-6 rounded-2xl bg-gradient-to-br from-white/5 to-white/[0.02] border border-white/10 backdrop-blur-sm shrink-0 md:min-h-0">
+            <div className="p-5 md:p-6 rounded-2xl bg-gradient-to-br from-white/5 to-white/[0.02] border border-white/10 backdrop-blur-sm shrink-0 md:min-h-0 transition-all duration-300 hover:border-white/20 hover:shadow-[0_0_28px_rgba(139,92,246,0.22)]">
               <p className="text-sm md:text-base text-gray-300 leading-relaxed mb-4">
                 CS Demo Day is the University of Windsor's flagship Computer Science event, bringing together students, faculty, industry professionals, and recruiters to celebrate student innovation and excellence.
               </p>
@@ -373,22 +378,22 @@ export default function App() {
               </p>
             </div>
             <div className="grid grid-cols-2 gap-3 md:gap-4 shrink-0">
-              <div className="p-4 md:p-5 rounded-2xl bg-gradient-to-br from-blue-500/10 to-blue-500/5 border border-blue-500/20">
+              <div className="p-4 md:p-5 rounded-2xl bg-gradient-to-br from-blue-500/10 to-blue-500/5 border border-blue-500/20 transition-all duration-300 hover:border-blue-500/40 hover:shadow-[0_0_24px_rgba(59,130,246,0.28)]">
                 <Users className="w-8 h-8 md:w-9 md:h-9 text-blue-400 mb-2 md:mb-3" />
                 <div className="text-2xl md:text-3xl font-bold mb-1">200+</div>
                 <div className="text-gray-400 text-sm md:text-base">Attendees</div>
               </div>
-              <div className="p-4 md:p-5 rounded-2xl bg-gradient-to-br from-purple-500/10 to-purple-500/5 border border-purple-500/20">
+              <div className="p-4 md:p-5 rounded-2xl bg-gradient-to-br from-purple-500/10 to-purple-500/5 border border-purple-500/20 transition-all duration-300 hover:border-purple-500/40 hover:shadow-[0_0_24px_rgba(139,92,246,0.28)]">
                 <Lightbulb className="w-8 h-8 md:w-9 md:h-9 text-purple-400 mb-2 md:mb-3" />
                 <div className="text-2xl md:text-3xl font-bold mb-1">40+</div>
                 <div className="text-gray-400 text-sm md:text-base">Projects</div>
               </div>
-              <div className="p-4 md:p-5 rounded-2xl bg-gradient-to-br from-purple-500/10 to-purple-500/5 border border-purple-500/20">
+              <div className="p-4 md:p-5 rounded-2xl bg-gradient-to-br from-purple-500/10 to-purple-500/5 border border-purple-500/20 transition-all duration-300 hover:border-purple-500/40 hover:shadow-[0_0_24px_rgba(139,92,246,0.28)]">
                 <Trophy className="w-8 h-8 md:w-9 md:h-9 text-purple-400 mb-2 md:mb-3" />
                 <div className="text-2xl md:text-3xl font-bold mb-1">12</div>
                 <div className="text-gray-400 text-sm md:text-base">Awards</div>
               </div>
-              <div className="p-4 md:p-5 rounded-2xl bg-gradient-to-br from-blue-500/10 to-blue-500/5 border border-blue-500/20">
+              <div className="p-4 md:p-5 rounded-2xl bg-gradient-to-br from-blue-500/10 to-blue-500/5 border border-blue-500/20 transition-all duration-300 hover:border-blue-500/40 hover:shadow-[0_0_24px_rgba(59,130,246,0.28)]">
                 <Zap className="w-8 h-8 md:w-9 md:h-9 text-blue-400 mb-2 md:mb-3" />
                 <div className="text-2xl md:text-3xl font-bold mb-1">5th</div>
                 <div className="text-gray-400 text-sm md:text-base">Annual Event</div>
@@ -397,21 +402,21 @@ export default function App() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-3 md:gap-4 shrink-0">
-            <div className="p-4 md:p-5 rounded-2xl bg-gradient-to-br from-white/5 to-white/[0.02] border border-white/10">
+            <div className="p-4 md:p-5 rounded-2xl bg-gradient-to-br from-white/5 to-white/[0.02] border border-white/10 transition-all duration-300 hover:border-white/20 hover:shadow-[0_0_24px_rgba(59,130,246,0.26)]">
               <div className="w-10 h-10 rounded-lg bg-blue-500/10 flex items-center justify-center mb-3">
                 <Lightbulb className="w-5 h-5 text-blue-400" />
               </div>
               <h3 className="text-base md:text-lg font-semibold mb-1">Live Demos & Presentations</h3>
               <p className="text-gray-400 text-sm">Interactive showcases where students demonstrate their projects in real-time</p>
             </div>
-            <div className="p-4 md:p-5 rounded-2xl bg-gradient-to-br from-white/5 to-white/[0.02] border border-white/10">
+            <div className="p-4 md:p-5 rounded-2xl bg-gradient-to-br from-white/5 to-white/[0.02] border border-white/10 transition-all duration-300 hover:border-white/20 hover:shadow-[0_0_24px_rgba(139,92,246,0.26)]">
               <div className="w-10 h-10 rounded-lg bg-purple-500/10 flex items-center justify-center mb-3">
                 <Users className="w-5 h-5 text-purple-400" />
               </div>
               <h3 className="text-base md:text-lg font-semibold mb-1">Networking Opportunities</h3>
               <p className="text-gray-400 text-sm">Connect with industry professionals, alumni, and fellow innovators</p>
             </div>
-            <div className="p-4 md:p-5 rounded-2xl bg-gradient-to-br from-white/5 to-white/[0.02] border border-white/10">
+            <div className="p-4 md:p-5 rounded-2xl bg-gradient-to-br from-white/5 to-white/[0.02] border border-white/10 transition-all duration-300 hover:border-white/20 hover:shadow-[0_0_24px_rgba(59,130,246,0.26)]">
               <div className="w-10 h-10 rounded-lg bg-blue-500/10 flex items-center justify-center mb-3">
                 <Trophy className="w-5 h-5 text-blue-400" />
               </div>
@@ -425,7 +430,7 @@ export default function App() {
       {/* Call for Submissions */}
       <section id="submit" className="py-20 px-6 relative min-h-screen snap-start flex flex-col justify-center">
         <div className="max-w-4xl mx-auto">
-          <div className="p-10 rounded-3xl bg-gradient-to-br from-blue-500/10 via-purple-500/10 to-blue-500/10 border border-purple-500/20 relative overflow-hidden">
+          <div className="section-cta-glow p-10 rounded-3xl bg-gradient-to-br from-blue-500/10 via-purple-500/10 to-blue-500/10 border relative overflow-hidden">
             <div className="absolute inset-0 bg-gradient-to-r from-blue-500/5 to-purple-500/5"></div>
             <div className="relative z-10">
               <span className="text-sm uppercase tracking-wider text-purple-400 font-medium">Call for Demos</span>
@@ -478,7 +483,7 @@ export default function App() {
       {/* Attend Section — Register as participant (industry, faculty, guests) */}
       <section id="attend" className="py-20 px-6 relative min-h-screen snap-start flex flex-col justify-center">
         <div className="max-w-4xl mx-auto">
-          <div className="p-10 rounded-3xl bg-gradient-to-br from-blue-500/10 via-purple-500/10 to-blue-500/10 border border-purple-500/20 relative overflow-hidden">
+          <div className="section-cta-glow p-10 rounded-3xl bg-gradient-to-br from-blue-500/10 via-purple-500/10 to-blue-500/10 border relative overflow-hidden">
             <div className="absolute inset-0 bg-gradient-to-r from-blue-500/5 to-purple-500/5"></div>
             <div className="relative z-10 text-left">
               <span className="text-sm uppercase tracking-wider text-purple-400 font-medium">Join as an attendee</span>
@@ -570,84 +575,84 @@ export default function App() {
 
       {/* FAQ Section */}
       <section id="faq" className="py-20 px-6 relative min-h-screen snap-start flex flex-col justify-center">
-        <div className="max-w-3xl mx-auto">
+        <div className="max-w-3xl mx-auto w-full">
           <div className="text-center mb-16">
             <span className="text-sm uppercase tracking-wider text-purple-400 font-medium">FAQ</span>
             <h2 className="text-4xl md:text-5xl mt-4">Common Questions</h2>
           </div>
-          
-          <Accordion type="single" collapsible value={openFaq} onValueChange={setOpenFaq}>
-            <AccordionItem value="item-1" className="border-white/10 mb-4">
-              <AccordionTrigger className="text-lg hover:no-underline py-6 px-6 rounded-xl bg-white/5 hover:bg-white/10 transition-all data-[state=open]:bg-white/10 data-[state=open]:rounded-b-none">
+
+          <Accordion type="single" collapsible value={openFaq} onValueChange={setOpenFaq} className="w-full space-y-4">
+            <AccordionItem value="item-1" className="faq-item-glow w-full border-b-0 border border-white/10 rounded-xl overflow-hidden transition-all duration-300 hover:border-white/20 hover:shadow-[0_0_24px_rgba(139,92,246,0.18)] data-[state=open]:border-purple-500/30">
+              <AccordionTrigger className="w-full text-lg hover:no-underline py-6 px-6 rounded-t-xl bg-white/5 hover:bg-white/[0.08] transition-all duration-300 data-[state=open]:bg-white/[0.08] data-[state=open]:rounded-b-none text-left [&[data-state=open]]:rounded-b-none">
                 Who can submit a project?
               </AccordionTrigger>
-              <AccordionContent className="px-6 py-6 bg-white/5 rounded-b-xl border-t border-white/10">
+              <AccordionContent className="w-full px-6 py-6 bg-white/[0.03] rounded-b-xl border-t border-white/10">
                 <p className="text-gray-300 leading-relaxed">
                   Any currently enrolled undergraduate or graduate student in the Computer Science department. Teams of up to 4 members are welcome.
                 </p>
               </AccordionContent>
             </AccordionItem>
 
-            <AccordionItem value="item-2" className="border-white/10 mb-4">
-              <AccordionTrigger className="text-lg hover:no-underline py-6 px-6 rounded-xl bg-white/5 hover:bg-white/10 transition-all data-[state=open]:bg-white/10 data-[state=open]:rounded-b-none">
+            <AccordionItem value="item-2" className="faq-item-glow w-full border-b-0 border border-white/10 rounded-xl overflow-hidden transition-all duration-300 hover:border-white/20 hover:shadow-[0_0_24px_rgba(139,92,246,0.18)] data-[state=open]:border-purple-500/30">
+              <AccordionTrigger className="w-full text-lg hover:no-underline py-6 px-6 rounded-t-xl bg-white/5 hover:bg-white/[0.08] transition-all duration-300 data-[state=open]:bg-white/[0.08] data-[state=open]:rounded-b-none text-left [&[data-state=open]]:rounded-b-none">
                 Does my project have to be from a class?
               </AccordionTrigger>
-              <AccordionContent className="px-6 py-6 bg-white/5 rounded-b-xl border-t border-white/10">
+              <AccordionContent className="w-full px-6 py-6 bg-white/[0.03] rounded-b-xl border-t border-white/10">
                 <p className="text-gray-300 leading-relaxed">
                   No! Projects can be personal, research-based, or from a course. The key requirement is that the work is original and completed during the current academic year.
                 </p>
               </AccordionContent>
             </AccordionItem>
 
-            <AccordionItem value="item-3" className="border-white/10 mb-4">
-              <AccordionTrigger className="text-lg hover:no-underline py-6 px-6 rounded-xl bg-white/5 hover:bg-white/10 transition-all data-[state=open]:bg-white/10 data-[state=open]:rounded-b-none">
+            <AccordionItem value="item-3" className="faq-item-glow w-full border-b-0 border border-white/10 rounded-xl overflow-hidden transition-all duration-300 hover:border-white/20 hover:shadow-[0_0_24px_rgba(139,92,246,0.18)] data-[state=open]:border-purple-500/30">
+              <AccordionTrigger className="w-full text-lg hover:no-underline py-6 px-6 rounded-t-xl bg-white/5 hover:bg-white/[0.08] transition-all duration-300 data-[state=open]:bg-white/[0.08] data-[state=open]:rounded-b-none text-left [&[data-state=open]]:rounded-b-none">
                 What should I bring on Demo Day?
               </AccordionTrigger>
-              <AccordionContent className="px-6 py-6 bg-white/5 rounded-b-xl border-t border-white/10">
+              <AccordionContent className="w-full px-6 py-6 bg-white/[0.03] rounded-b-xl border-t border-white/10">
                 <p className="text-gray-300 leading-relaxed">
                   Bring your laptop, any hardware needed for your demo, and a printed poster (optional but encouraged). Power outlets will be available at each booth.
                 </p>
               </AccordionContent>
             </AccordionItem>
 
-            <AccordionItem value="item-4" className="border-white/10 mb-4">
-              <AccordionTrigger className="text-lg hover:no-underline py-6 px-6 rounded-xl bg-white/5 hover:bg-white/10 transition-all data-[state=open]:bg-white/10 data-[state=open]:rounded-b-none">
+            <AccordionItem value="item-4" className="faq-item-glow w-full border-b-0 border border-white/10 rounded-xl overflow-hidden transition-all duration-300 hover:border-white/20 hover:shadow-[0_0_24px_rgba(139,92,246,0.18)] data-[state=open]:border-purple-500/30">
+              <AccordionTrigger className="w-full text-lg hover:no-underline py-6 px-6 rounded-t-xl bg-white/5 hover:bg-white/[0.08] transition-all duration-300 data-[state=open]:bg-white/[0.08] data-[state=open]:rounded-b-none text-left [&[data-state=open]]:rounded-b-none">
                 Is there a registration fee?
               </AccordionTrigger>
-              <AccordionContent className="px-6 py-6 bg-white/5 rounded-b-xl border-t border-white/10">
+              <AccordionContent className="w-full px-6 py-6 bg-white/[0.03] rounded-b-xl border-t border-white/10">
                 <p className="text-gray-300 leading-relaxed">
                   No. Participation is completely free for all students. Attending as a guest is also free and open to the public.
                 </p>
               </AccordionContent>
             </AccordionItem>
 
-            <AccordionItem value="item-5" className="border-white/10 mb-4">
-              <AccordionTrigger className="text-lg hover:no-underline py-6 px-6 rounded-xl bg-white/5 hover:bg-white/10 transition-all data-[state=open]:bg-white/10 data-[state=open]:rounded-b-none">
+            <AccordionItem value="item-5" className="faq-item-glow w-full border-b-0 border border-white/10 rounded-xl overflow-hidden transition-all duration-300 hover:border-white/20 hover:shadow-[0_0_24px_rgba(139,92,246,0.18)] data-[state=open]:border-purple-500/30">
+              <AccordionTrigger className="w-full text-lg hover:no-underline py-6 px-6 rounded-t-xl bg-white/5 hover:bg-white/[0.08] transition-all duration-300 data-[state=open]:bg-white/[0.08] data-[state=open]:rounded-b-none text-left [&[data-state=open]]:rounded-b-none">
                 How will projects be judged?
               </AccordionTrigger>
-              <AccordionContent className="px-6 py-6 bg-white/5 rounded-b-xl border-t border-white/10">
+              <AccordionContent className="w-full px-6 py-6 bg-white/[0.03] rounded-b-xl border-t border-white/10">
                 <p className="text-gray-300 leading-relaxed">
                   A panel of faculty and industry judges evaluates projects on innovation, technical complexity, presentation quality, and real-world impact.
                 </p>
               </AccordionContent>
             </AccordionItem>
 
-            <AccordionItem value="item-6" className="border-white/10 mb-4">
-              <AccordionTrigger className="text-lg hover:no-underline py-6 px-6 rounded-xl bg-white/5 hover:bg-white/10 transition-all data-[state=open]:bg-white/10 data-[state=open]:rounded-b-none">
+            <AccordionItem value="item-6" className="faq-item-glow w-full border-b-0 border border-white/10 rounded-xl overflow-hidden transition-all duration-300 hover:border-white/20 hover:shadow-[0_0_24px_rgba(139,92,246,0.18)] data-[state=open]:border-purple-500/30">
+              <AccordionTrigger className="w-full text-lg hover:no-underline py-6 px-6 rounded-t-xl bg-white/5 hover:bg-white/[0.08] transition-all duration-300 data-[state=open]:bg-white/[0.08] data-[state=open]:rounded-b-none text-left [&[data-state=open]]:rounded-b-none">
                 Can I attend even if I&apos;m not presenting?
               </AccordionTrigger>
-              <AccordionContent className="px-6 py-6 bg-white/5 rounded-b-xl border-t border-white/10">
+              <AccordionContent className="w-full px-6 py-6 bg-white/[0.03] rounded-b-xl border-t border-white/10">
                 <p className="text-gray-300 leading-relaxed">
                   Absolutely! We encourage all students, faculty, and guests to attend and explore the projects on display.
                 </p>
               </AccordionContent>
             </AccordionItem>
 
-            <AccordionItem value="item-7" className="border-white/10">
-              <AccordionTrigger className="text-lg hover:no-underline py-6 px-6 rounded-xl bg-white/5 hover:bg-white/10 transition-all data-[state=open]:bg-white/10 data-[state=open]:rounded-b-none">
+            <AccordionItem value="item-7" className="faq-item-glow w-full border-b-0 border border-white/10 rounded-xl overflow-hidden transition-all duration-300 hover:border-white/20 hover:shadow-[0_0_24px_rgba(139,92,246,0.18)] data-[state=open]:border-purple-500/30">
+              <AccordionTrigger className="w-full text-lg hover:no-underline py-6 px-6 rounded-t-xl bg-white/5 hover:bg-white/[0.08] transition-all duration-300 data-[state=open]:bg-white/[0.08] data-[state=open]:rounded-b-none text-left [&[data-state=open]]:rounded-b-none">
                 What prizes are available?
               </AccordionTrigger>
-              <AccordionContent className="px-6 py-6 bg-white/5 rounded-b-xl border-t border-white/10">
+              <AccordionContent className="w-full px-6 py-6 bg-white/[0.03] rounded-b-xl border-t border-white/10">
                 <p className="text-gray-300 leading-relaxed">
                   Awards include Best Overall Project, Best Technical Achievement, Best Design & UX, Best Social Impact, and People&apos;s Choice. Prize details to be announced.
                 </p>

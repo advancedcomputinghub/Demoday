@@ -218,3 +218,35 @@
 .group:hover .schedule-dot-pulse-purple {
   animation: schedule-dot-pulse-purple 1.5s ease-in-out infinite;
 }
+
+/* FAQ expanded item: light pulsating glow between blue and purple */
+@keyframes faq-glow-pulse {
+  0%, 100% {
+    box-shadow: 0 0 24px rgba(59, 130, 246, 0.2);
+    border-color: rgba(59, 130, 246, 0.35);
+  }
+  50% {
+    box-shadow: 0 0 28px rgba(139, 92, 246, 0.22);
+    border-color: rgba(139, 92, 246, 0.4);
+  }
+}
+
+.faq-item-glow[data-state="open"] {
+  animation: faq-glow-pulse 2.5s ease-in-out infinite;
+}
+
+/* Submit & Attend sections: soft breathing glow between blue and purple */
+@keyframes section-cta-glow {
+  0%, 100% {
+    border-color: rgba(59, 130, 246, 0.28);
+    box-shadow: 0 0 24px rgba(59, 130, 246, 0.08);
+  }
+  50% {
+    border-color: rgba(139, 92, 246, 0.32);
+    box-shadow: 0 0 28px rgba(139, 92, 246, 0.12);
+  }
+}
+
+.section-cta-glow {
+  animation: section-cta-glow 4s ease-in-out infinite;
+}
