@@ -173,3 +173,17 @@
     line-height: 1.5;
   }
 }
+
+/* Gentle glow pulse for CTA button — glow intensity breathes */
+@keyframes cta-glow-pulse {
+  0%, 100% {
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1), 0 0 20px rgba(139, 92, 246, 0.22);
+  }
+  50% {
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1), 0 0 32px rgba(139, 92, 246, 0.42);
+  }
+}
+
+.cta-glow-pulse {
+  animation: cta-glow-pulse 2.5s ease-in-out infinite;
+}

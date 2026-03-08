@@ -75,26 +75,46 @@ export default function App() {
             </div>
           </div>
           <div className="hidden md:flex items-center gap-8">
-            <button onClick={() => scrollToSection('about')} className="text-gray-400 hover:text-white transition-colors">
+            <button
+              onClick={() => scrollToSection('about')}
+              className={`pb-0.5 border-b-2 transition-all duration-300 ${
+                activeSectionIndex === 1
+                  ? 'text-white border-white/70 [text-shadow:0_0_12px_rgba(255,255,255,0.35),0_0_24px_rgba(192,132,252,0.4),0_0_36px_rgba(139,92,246,0.2)]'
+                  : 'text-gray-400 hover:text-white hover:border-white/50 border-transparent hover:[text-shadow:0_0_12px_rgba(255,255,255,0.35),0_0_24px_rgba(192,132,252,0.4),0_0_36px_rgba(139,92,246,0.2)]'
+              }`}
+            >
               About
             </button>
-            <button onClick={() => scrollToSection('submit')} className="text-gray-400 hover:text-white transition-colors">
+            <button
+              onClick={() => scrollToSection('submit')}
+              className={`pb-0.5 border-b-2 transition-all duration-300 ${
+                activeSectionIndex === 2
+                  ? 'text-white border-white/70 [text-shadow:0_0_12px_rgba(255,255,255,0.35),0_0_24px_rgba(192,132,252,0.4),0_0_36px_rgba(139,92,246,0.2)]'
+                  : 'text-gray-400 hover:text-white hover:border-white/50 border-transparent hover:[text-shadow:0_0_12px_rgba(255,255,255,0.35),0_0_24px_rgba(192,132,252,0.4),0_0_36px_rgba(139,92,246,0.2)]'
+              }`}
+            >
               Apply
             </button>
-            <button onClick={() => scrollToSection('schedule')} className="text-gray-400 hover:text-white transition-colors">
+            <button
+              onClick={() => scrollToSection('schedule')}
+              className={`pb-0.5 border-b-2 transition-all duration-300 ${
+                activeSectionIndex === 3
+                  ? 'text-white border-white/70 [text-shadow:0_0_12px_rgba(255,255,255,0.35),0_0_24px_rgba(192,132,252,0.4),0_0_36px_rgba(139,92,246,0.2)]'
+                  : 'text-gray-400 hover:text-white hover:border-white/50 border-transparent hover:[text-shadow:0_0_12px_rgba(255,255,255,0.35),0_0_24px_rgba(192,132,252,0.4),0_0_36px_rgba(139,92,246,0.2)]'
+              }`}
+            >
               Schedule
             </button>
-            <button onClick={() => scrollToSection('faq')} className="text-gray-400 hover:text-white transition-colors">
+            <button
+              onClick={() => scrollToSection('faq')}
+              className={`pb-0.5 border-b-2 transition-all duration-300 ${
+                activeSectionIndex === 4
+                  ? 'text-white border-white/70 [text-shadow:0_0_12px_rgba(255,255,255,0.35),0_0_24px_rgba(192,132,252,0.4),0_0_36px_rgba(139,92,246,0.2)]'
+                  : 'text-gray-400 hover:text-white hover:border-white/50 border-transparent hover:[text-shadow:0_0_12px_rgba(255,255,255,0.35),0_0_24px_rgba(192,132,252,0.4),0_0_36px_rgba(139,92,246,0.2)]'
+              }`}
+            >
               FAQ
             </button>
-            <a 
-              href="https://docs.google.com/forms/d/e/1FAIpQLSevBxky8AILviHbGyK3XLmtiOqw8ddW8tQ0AIy7ZLS1MInYBg/viewform" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="px-6 py-2.5 rounded-xl bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 transition-all shadow-lg shadow-purple-500/20"
-            >
-              Submit Project
-            </a>
           </div>
         </div>
       </nav>
