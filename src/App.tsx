@@ -287,20 +287,13 @@ export default function App() {
                       )}
                     </div>
                     
-                    <motion.h1
+                    <h1
                       className="text-6xl md:text-8xl mb-6"
-                      animate={{
-                        textShadow: [
-                          "0 0 30px rgba(139, 92, 246, 0.4), 0 0 60px rgba(59, 130, 246, 0.3)",
-                          "0 0 50px rgba(139, 92, 246, 0.6), 0 0 80px rgba(59, 130, 246, 0.5)",
-                          "0 0 30px rgba(139, 92, 246, 0.4), 0 0 60px rgba(59, 130, 246, 0.3)",
-                        ],
-                      }}
-                      transition={{ duration: 3, repeat: Infinity }}
+                      style={{ textShadow: '0 0 40px rgba(139, 92, 246, 0.5), 0 0 70px rgba(59, 130, 246, 0.4)' }}
                     >
                       <span className="block">Demo <span className="bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent">Day</span></span>
                       <span className="block mt-2">2026</span>
-                    </motion.h1>
+                    </h1>
                     
                     <motion.p
                       initial={{ opacity: 0 }}
