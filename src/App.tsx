@@ -3,27 +3,19 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from './
 import { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 
-const SECTION_IDS = ['hero', 'about', 'submit', 'schedule', 'faq', 'footer'] as const;
+const SECTION_IDS = ['hero', 'about', 'submit', 'attend', 'schedule', 'faq'] as const;
+
+const PARTICIPANT_REGISTRATION_URL = 'https://docs.google.com/forms/d/e/1FAIpQLSelqknwzF-ht4gNg1FALEAf7pL-A8gUeTTS9CnCIv5bBvr4nQ/viewform';
 
 export default function App() {
   const [openFaq, setOpenFaq] = useState<string>('');
-  const [heroStage, setHeroStage] = useState<1 | 2 | 3>(1);
+  const [heroStage, setHeroStage] = useState<1 | 2>(1);
   const [activeSectionIndex, setActiveSectionIndex] = useState(0);
   const scrollContainerRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
-    const stage2Timer = setTimeout(() => {
-      setHeroStage(2);
-    }, 1800);
-
-    const stage3Timer = setTimeout(() => {
-      setHeroStage(3);
-    }, 3600);
-
-    return () => {
-      clearTimeout(stage2Timer);
-      clearTimeout(stage3Timer);
-    };
+    const toDemoDay = setTimeout(() => setHeroStage(2), 3000);
+    return () => clearTimeout(toDemoDay);
   }, []);
 
   useEffect(() => {
@@ -66,9 +58,7 @@ export default function App() {
       <nav className="fixed top-0 w-full z-50 bg-[#0a0a0f]/80 backdrop-blur-xl border-b border-white/5">
         <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
           <div className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center">
-              <Zap className="w-5 h-5 text-white" />
-            </div>
+            <img src="/uw-logo-shield.png" alt="University of Windsor" className="h-10 w-10 shrink-0 object-contain" />
             <div className="flex flex-col">
               <span className="font-semibold text-lg leading-tight">CS Demo Day</span>
               <span className="text-xs text-gray-400">University of Windsor</span>
@@ -96,9 +86,19 @@ export default function App() {
               Apply
             </button>
             <button
-              onClick={() => scrollToSection('schedule')}
+              onClick={() => scrollToSection('attend')}
               className={`pb-0.5 border-b-2 transition-all duration-300 ${
                 activeSectionIndex === 3
+                  ? 'text-white border-white/70 [text-shadow:0_0_12px_rgba(255,255,255,0.35),0_0_24px_rgba(192,132,252,0.4),0_0_36px_rgba(139,92,246,0.2)]'
+                  : 'text-gray-400 hover:text-white hover:border-white/50 border-transparent hover:[text-shadow:0_0_12px_rgba(255,255,255,0.35),0_0_24px_rgba(192,132,252,0.4),0_0_36px_rgba(139,92,246,0.2)]'
+              }`}
+            >
+              Attend
+            </button>
+            <button
+              onClick={() => scrollToSection('schedule')}
+              className={`pb-0.5 border-b-2 transition-all duration-300 ${
+                activeSectionIndex === 4
                   ? 'text-white border-white/70 [text-shadow:0_0_12px_rgba(255,255,255,0.35),0_0_24px_rgba(192,132,252,0.4),0_0_36px_rgba(139,92,246,0.2)]'
                   : 'text-gray-400 hover:text-white hover:border-white/50 border-transparent hover:[text-shadow:0_0_12px_rgba(255,255,255,0.35),0_0_24px_rgba(192,132,252,0.4),0_0_36px_rgba(139,92,246,0.2)]'
               }`}
@@ -108,7 +108,7 @@ export default function App() {
             <button
               onClick={() => scrollToSection('faq')}
               className={`pb-0.5 border-b-2 transition-all duration-300 ${
-                activeSectionIndex === 4
+                activeSectionIndex === 5
                   ? 'text-white border-white/70 [text-shadow:0_0_12px_rgba(255,255,255,0.35),0_0_24px_rgba(192,132,252,0.4),0_0_36px_rgba(139,92,246,0.2)]'
                   : 'text-gray-400 hover:text-white hover:border-white/50 border-transparent hover:[text-shadow:0_0_12px_rgba(255,255,255,0.35),0_0_24px_rgba(192,132,252,0.4),0_0_36px_rgba(139,92,246,0.2)]'
               }`}
@@ -137,35 +137,6 @@ export default function App() {
               <AnimatePresence mode="wait">
                 {heroStage === 1 && (
                   <motion.div
-                    key="uw"
-                    initial={{ opacity: 0, scale: 0.9 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    exit={{ opacity: 0, scale: 1.1 }}
-                    transition={{ duration: 0.8, ease: "easeInOut" }}
-                    className="absolute inset-0 flex flex-col items-center justify-center"
-                  >
-                    <div className="mb-8 flex h-16 w-16 items-center justify-center rounded-2xl border border-white/20 bg-white/10 text-sm font-semibold text-white">
-                      UW
-                    </div>
-                    <motion.div
-                      animate={{
-                        textShadow: [
-                          "0 0 20px rgba(139, 92, 246, 0.3)",
-                          "0 0 40px rgba(139, 92, 246, 0.5)",
-                          "0 0 20px rgba(139, 92, 246, 0.3)",
-                        ],
-                      }}
-                      transition={{ duration: 2, repeat: Infinity }}
-                    >
-                      <h1 className="text-4xl md:text-6xl mb-4">
-                        <span className="block text-gray-300">University of Windsor</span>
-                      </h1>
-                    </motion.div>
-                  </motion.div>
-                )}
-
-                {heroStage === 2 && (
-                  <motion.div
                     key="presents"
                     initial={{ opacity: 0, scale: 0.9, y: 16 }}
                     animate={{ opacity: 1, scale: 1, y: 0 }}
@@ -173,9 +144,11 @@ export default function App() {
                     transition={{ duration: 0.7, ease: "easeInOut" }}
                     className="absolute inset-0 flex flex-col items-center justify-center"
                   >
-                    <div className="mb-8 flex h-16 w-16 items-center justify-center rounded-2xl border border-white/20 bg-white/10 text-sm font-semibold text-white">
-                      UW
-                    </div>
+                    <img
+                      src="/uw-logo-full.png"
+                      alt="University of Windsor"
+                      className="max-w-[340px] md:max-w-[460px] w-full h-auto object-contain mb-8"
+                    />
                     <h1 className="text-3xl md:text-5xl mb-4">
                       <span className="block text-gray-300">School of Computer Science</span>
                     </h1>
@@ -185,7 +158,7 @@ export default function App() {
                   </motion.div>
                 )}
 
-                {heroStage === 3 && (
+                {heroStage === 2 && (
                   <motion.div
                     key="demoday"
                     initial={{ opacity: 0, scale: 0.9, y: 20 }}
@@ -232,13 +205,13 @@ export default function App() {
                         href="https://docs.google.com/forms/d/e/1FAIpQLSevBxky8AILviHbGyK3XLmtiOqw8ddW8tQ0AIy7ZLS1MInYBg/viewform" 
                         target="_blank" 
                         rel="noopener noreferrer"
-                        className="px-8 py-4 rounded-xl bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 transition-all shadow-lg shadow-purple-500/30 text-lg font-medium"
+                        className="cta-glow-pulse px-8 py-4 rounded-xl bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 transition-all duration-300 text-lg font-medium hover:shadow-[0_0_24px_rgba(139,92,246,0.5)] hover:scale-[1.02]"
                       >
                         Submit Your Project
                       </a>
                       <button 
                         onClick={() => scrollToSection('about')}
-                        className="px-8 py-4 rounded-xl border-2 border-white/10 hover:border-white/20 transition-all text-lg"
+                        className="px-8 py-4 rounded-xl border-2 border-white/10 hover:border-white/30 hover:bg-white/5 transition-all duration-300 text-lg hover:scale-[1.02] hover:shadow-[0_0_20px_rgba(255,255,255,0.06)]"
                       >
                         Learn More
                       </button>
@@ -347,7 +320,7 @@ export default function App() {
             <div className="absolute inset-0 bg-gradient-to-r from-blue-500/5 to-purple-500/5"></div>
             <div className="relative z-10">
               <span className="text-sm uppercase tracking-wider text-purple-400 font-medium">Call for Demos</span>
-              <h2 className="text-4xl md:text-5xl mt-4 mb-6">Submit Your Project</h2>
+              <h2 className="text-4xl md:text-5xl mt-4 mb-6">Submit Your <span className="bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent">Project</span></h2>
               <p className="text-xl text-gray-300 mb-8 leading-relaxed">
                 Applications are open! Fill out the form below to register your project. Deadline: <span className="text-white font-medium">April 30, 2026</span>
               </p>
@@ -383,9 +356,56 @@ export default function App() {
                 href="https://docs.google.com/forms/d/e/1FAIpQLSevBxky8AILviHbGyK3XLmtiOqw8ddW8tQ0AIy7ZLS1MInYBg/viewform" 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-8 py-4 rounded-xl bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 transition-all shadow-lg shadow-purple-500/30 text-lg font-medium"
+                className="cta-glow-pulse inline-flex items-center gap-2 px-8 py-4 rounded-xl bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 transition-all duration-300 text-lg font-medium hover:shadow-[0_0_24px_rgba(139,92,246,0.5)] hover:scale-[1.02]"
               >
                 Submit Application
+                <ChevronDown className="w-5 h-5 rotate-[-90deg]" />
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Attend Section — Register as participant (industry, faculty, guests) */}
+      <section id="attend" className="py-20 px-6 relative min-h-screen snap-start flex flex-col justify-center">
+        <div className="max-w-4xl mx-auto">
+          <div className="p-10 rounded-3xl bg-gradient-to-br from-blue-500/10 via-purple-500/10 to-blue-500/10 border border-purple-500/20 relative overflow-hidden">
+            <div className="absolute inset-0 bg-gradient-to-r from-blue-500/5 to-purple-500/5"></div>
+            <div className="relative z-10 text-left">
+              <span className="text-sm uppercase tracking-wider text-purple-400 font-medium">Join as an attendee</span>
+              <h2 className="text-4xl md:text-5xl mt-4 mb-6">
+                Register to <span className="bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent">Attend</span>
+              </h2>
+              <p className="text-xl text-gray-300 mb-8 leading-relaxed">
+                Industry professionals, faculty members, and guests are invited to attend CS Demo Day – Winter 2026. Please complete the form below to register your participation. <span className="text-white font-medium">March 27, 2026 · 10:00 AM – 1:00 PM</span>
+              </p>
+              <div className="space-y-4 mb-8">
+                <div className="flex items-start gap-3">
+                  <div className="w-6 h-6 rounded-full bg-blue-500/20 border-2 border-blue-500 flex items-center justify-center mt-1 flex-shrink-0">
+                    <div className="w-2 h-2 rounded-full bg-blue-500"></div>
+                  </div>
+                  <p className="text-gray-300">Open to industry professionals, faculty, alumni, and community guests</p>
+                </div>
+                <div className="flex items-start gap-3">
+                  <div className="w-6 h-6 rounded-full bg-blue-500/20 border-2 border-blue-500 flex items-center justify-center mt-1 flex-shrink-0">
+                    <div className="w-2 h-2 rounded-full bg-blue-500"></div>
+                  </div>
+                  <p className="text-gray-300">Engage with students, explore innovative projects, and connect with colleagues from academia and industry</p>
+                </div>
+                <div className="flex items-start gap-3">
+                  <div className="w-6 h-6 rounded-full bg-blue-500/20 border-2 border-blue-500 flex items-center justify-center mt-1 flex-shrink-0">
+                    <div className="w-2 h-2 rounded-full bg-blue-500"></div>
+                  </div>
+                  <p className="text-gray-300">Advanced Computing Hub, 300 Ouellette Ave, 4th Floor, University of Windsor</p>
+                </div>
+              </div>
+              <a
+                href={PARTICIPANT_REGISTRATION_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="cta-glow-pulse inline-flex items-center gap-2 px-8 py-4 rounded-xl bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 transition-all duration-300 text-lg font-medium hover:shadow-[0_0_24px_rgba(139,92,246,0.5)] hover:scale-[1.02]"
+              >
+                Register To Attend
                 <ChevronDown className="w-5 h-5 rotate-[-90deg]" />
               </a>
             </div>
@@ -545,14 +565,12 @@ export default function App() {
       </section>
 
       {/* Footer */}
-      <footer id="footer" className="border-t border-white/10 py-12 px-6 min-h-screen snap-start flex flex-col justify-center">
+      <footer id="footer" className="border-t border-white/10 py-12 px-6 snap-start">
         <div className="max-w-7xl mx-auto">
           <div className="grid md:grid-cols-3 gap-12 mb-12">
             <div>
               <div className="flex items-center gap-3 mb-4">
-                <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center">
-                  <Zap className="w-5 h-5 text-white" />
-                </div>
+                <img src="/uw-logo-shield.png" alt="University of Windsor" className="h-10 w-10 shrink-0 object-contain" />
                 <div className="flex flex-col">
                   <span className="font-semibold text-lg leading-tight">CS Demo Day</span>
                   <span className="text-xs text-gray-400">University of Windsor</span>
@@ -566,16 +584,19 @@ export default function App() {
             <div>
               <h3 className="font-medium mb-4">Quick Links</h3>
               <div className="space-y-2">
-                <button onClick={() => scrollToSection('about')} className="block text-gray-400 hover:text-white transition-colors">
+                <button onClick={() => scrollToSection('about')} className="block text-gray-400 hover:text-white transition-all duration-200 hover:[text-shadow:0_0_12px_rgba(255,255,255,0.35),0_0_24px_rgba(192,132,252,0.4),0_0_36px_rgba(139,92,246,0.2)]">
                   About
                 </button>
-                <button onClick={() => scrollToSection('submit')} className="block text-gray-400 hover:text-white transition-colors">
+                <button onClick={() => scrollToSection('submit')} className="block text-gray-400 hover:text-white transition-all duration-200 hover:[text-shadow:0_0_12px_rgba(255,255,255,0.35),0_0_24px_rgba(192,132,252,0.4),0_0_36px_rgba(139,92,246,0.2)]">
                   Apply
                 </button>
-                <button onClick={() => scrollToSection('schedule')} className="block text-gray-400 hover:text-white transition-colors">
+                <button onClick={() => scrollToSection('attend')} className="block text-gray-400 hover:text-white transition-all duration-200 hover:[text-shadow:0_0_12px_rgba(255,255,255,0.35),0_0_24px_rgba(192,132,252,0.4),0_0_36px_rgba(139,92,246,0.2)]">
+                  Attend
+                </button>
+                <button onClick={() => scrollToSection('schedule')} className="block text-gray-400 hover:text-white transition-all duration-200 hover:[text-shadow:0_0_12px_rgba(255,255,255,0.35),0_0_24px_rgba(192,132,252,0.4),0_0_36px_rgba(139,92,246,0.2)]">
                   Schedule
                 </button>
-                <button onClick={() => scrollToSection('faq')} className="block text-gray-400 hover:text-white transition-colors">
+                <button onClick={() => scrollToSection('faq')} className="block text-gray-400 hover:text-white transition-all duration-200 hover:[text-shadow:0_0_12px_rgba(255,255,255,0.35),0_0_24px_rgba(192,132,252,0.4),0_0_36px_rgba(139,92,246,0.2)]">
                   FAQ
                 </button>
               </div>
@@ -621,7 +642,7 @@ export default function App() {
           <button
             key={id}
             onClick={() => scrollToSection(id)}
-            className="rounded-full p-1 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-white/50"
+            className="rounded-full p-1 transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/50 hover:scale-125"
             aria-label={`Go to section ${i + 1}`}
             aria-current={activeSectionIndex === i ? 'true' : undefined}
           >
@@ -644,7 +665,7 @@ export default function App() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -8 }}
             onClick={scrollToNextSection}
-            className="fixed bottom-8 left-1/2 z-50 -translate-x-1/2 flex items-center justify-center w-11 h-11 rounded-full border border-white/20 bg-white/5 hover:bg-white/10 hover:border-white/30 transition-colors"
+            className="fixed bottom-8 left-1/2 z-50 -translate-x-1/2 flex items-center justify-center w-11 h-11 rounded-full border border-white/20 bg-white/5 hover:bg-white/10 hover:border-white/30 transition-all duration-300 hover:scale-110 hover:shadow-[0_0_20px_rgba(139,92,246,0.25)]"
             aria-label="Scroll to next section"
           >
             <ChevronDown className="w-5 h-5 text-white/80" />
