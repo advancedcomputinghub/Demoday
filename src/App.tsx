@@ -49,7 +49,7 @@ export default function App() {
   const scheduleInView = useInView(scheduleRef, { once: true, amount: 0.05 });
 
   useEffect(() => {
-    const toDemoDay = setTimeout(() => setHeroStage(2), 2000);
+    const toDemoDay = setTimeout(() => setHeroStage(2), 1700);
     return () => clearTimeout(toDemoDay);
   }, []);
 
@@ -221,10 +221,10 @@ export default function App() {
 
       <main
         ref={scrollContainerRef}
-        className="h-screen overflow-y-auto snap-y snap-mandatory scroll-smooth"
+        className="h-screen overflow-y-auto md:snap-y md:snap-mandatory md:scroll-smooth"
       >
       {/* Hero Section */}
-      <section id="hero" className="relative pt-24 pb-14 px-4 sm:px-6 md:pt-32 md:pb-20 md:px-6 min-h-screen flex items-start md:items-center overflow-y-auto md:overflow-hidden snap-start snap-always">
+      <section id="hero" className="relative pt-24 pb-14 px-4 sm:px-6 md:pt-32 md:pb-20 md:px-6 min-h-screen flex items-start md:items-center overflow-y-auto md:overflow-hidden md:snap-start md:snap-always">
         {/* Background Effects */}
         <div className="absolute inset-0 bg-gradient-to-b from-blue-950/20 via-purple-950/20 to-[#0a0a0f]"></div>
         <div className="absolute top-0 left-1/4 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl"></div>
@@ -415,7 +415,7 @@ export default function App() {
       </section>
 
       {/* About Section — desktop: single viewport with inner scroll; mobile: natural scroll, intro + stats in separate boxes */}
-      <section id="about" className="min-h-screen md:h-screen md:min-h-0 md:overflow-hidden snap-start flex flex-col py-8 px-6 md:py-10 md:px-6 relative">
+      <section id="about" className="min-h-screen md:h-screen md:min-h-0 md:overflow-hidden md:snap-start flex flex-col py-8 px-6 md:py-10 md:px-6 relative">
         <div className="max-w-7xl mx-auto w-full flex flex-col flex-1 md:min-h-0">
           <div className="text-center shrink-0 mb-4 md:mb-6">
             <span className="text-xs md:text-sm uppercase tracking-wider text-purple-400 font-medium">About the Event</span>
@@ -492,7 +492,7 @@ export default function App() {
       </section>
 
       {/* Call for Submissions */}
-      <section id="submit" className="py-12 px-4 sm:px-6 md:py-20 md:px-6 relative min-h-screen snap-start flex flex-col justify-center">
+      <section id="submit" className="py-12 px-4 sm:px-6 md:py-20 md:px-6 relative min-h-screen md:snap-start flex flex-col justify-center">
         <div className="max-w-4xl mx-auto w-full">
           <div className="section-cta-glow p-6 sm:p-8 md:p-10 rounded-2xl md:rounded-3xl bg-gradient-to-br from-blue-500/10 via-purple-500/10 to-blue-500/10 border relative overflow-hidden">
             <div className="absolute inset-0 bg-gradient-to-r from-blue-500/5 to-purple-500/5"></div>
@@ -545,7 +545,7 @@ export default function App() {
       </section>
 
       {/* Attend Section — Register as participant (industry, faculty, guests) */}
-      <section id="attend" className="py-12 px-4 sm:px-6 md:py-20 md:px-6 relative min-h-screen snap-start flex flex-col justify-center">
+      <section id="attend" className="py-12 px-4 sm:px-6 md:py-20 md:px-6 relative min-h-screen md:snap-start flex flex-col justify-center">
         <div className="max-w-4xl mx-auto w-full">
           <div className="section-cta-glow p-6 sm:p-8 md:p-10 rounded-2xl md:rounded-3xl bg-gradient-to-br from-blue-500/10 via-purple-500/10 to-blue-500/10 border relative overflow-hidden">
             <div className="absolute inset-0 bg-gradient-to-r from-blue-500/5 to-purple-500/5"></div>
@@ -592,7 +592,7 @@ export default function App() {
       </section>
 
       {/* Schedule Section */}
-      <section id="schedule" className="py-12 px-4 sm:px-6 md:py-20 md:px-6 relative min-h-screen snap-start flex flex-col justify-center">
+      <section id="schedule" className="py-12 px-4 sm:px-6 md:py-20 md:px-6 relative min-h-screen md:snap-start flex flex-col justify-center">
         <div className="max-w-5xl mx-auto w-full">
           <div className="text-center mb-10 md:mb-16">
             <span className="text-sm uppercase tracking-wider text-purple-400 font-medium">Day of the Event</span>
@@ -638,7 +638,7 @@ export default function App() {
       </section>
 
       {/* FAQ Section */}
-      <section id="faq" className="py-12 px-4 sm:px-6 md:py-20 md:px-6 relative min-h-screen snap-start flex flex-col justify-center">
+      <section id="faq" className="py-12 px-4 sm:px-6 md:py-20 md:px-6 relative min-h-screen md:snap-start flex flex-col justify-center">
         <div className="max-w-3xl mx-auto w-full">
           <div className="text-center mb-10 md:mb-16">
             <span className="text-sm uppercase tracking-wider text-purple-400 font-medium">FAQ</span>
@@ -727,7 +727,7 @@ export default function App() {
       </section>
 
       {/* Footer */}
-      <footer id="footer" className="border-t border-white/10 py-8 px-4 sm:px-6 md:py-12 md:px-6 snap-start">
+      <footer id="footer" className="border-t border-white/10 py-8 px-4 sm:px-6 md:py-12 md:px-6 md:snap-start">
         <div className="max-w-7xl mx-auto">
           <div className="grid md:grid-cols-3 gap-8 md:gap-12 mb-8 md:mb-12">
             <div>
