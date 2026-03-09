@@ -397,7 +397,7 @@ export default function App() {
                         <Calendar className="w-5 h-5 text-purple-400" />
                         <span>March 27, 2026</span>
                       </div>
-                      <div className="flex items-start gap-2">
+                      <div className="flex items-start gap-1.5">
                         <MapPin className="w-5 h-5 text-blue-400 mt-0.5 flex-shrink-0" />
                         <span>Advanced Computing Hub, University of Windsor</span>
                       </div>
@@ -771,7 +771,7 @@ export default function App() {
                   <Calendar className="w-5 h-5 text-purple-400 mt-0.5 flex-shrink-0" />
                   <span>March 27, 2026</span>
                 </div>
-                <div className="flex items-start gap-2">
+                <div className="flex items-start gap-1.5">
                   <MapPin className="w-5 h-5 text-blue-400 mt-0.5 flex-shrink-0" />
                   <span>Advanced Computing Hub, University of Windsor</span>
                 </div>
