@@ -414,9 +414,9 @@ export default function App() {
         </div>
       </section>
 
-      {/* About Section — single viewport, content sized to fit */}
-      <section id="about" className="h-screen min-h-0 overflow-hidden snap-start flex flex-col py-8 px-6 md:py-10 md:px-6 relative">
-        <div className="max-w-7xl mx-auto w-full flex flex-col flex-1 min-h-0">
+      {/* About Section — desktop: single viewport with inner scroll; mobile: natural scroll, intro + stats in separate boxes */}
+      <section id="about" className="min-h-screen md:h-screen md:min-h-0 md:overflow-hidden snap-start flex flex-col py-8 px-6 md:py-10 md:px-6 relative">
+        <div className="max-w-7xl mx-auto w-full flex flex-col flex-1 md:min-h-0">
           <div className="text-center shrink-0 mb-4 md:mb-6">
             <span className="text-xs md:text-sm uppercase tracking-wider text-purple-400 font-medium">About the Event</span>
             <h2 className="text-3xl md:text-4xl mt-2 md:mt-3">
@@ -424,7 +424,9 @@ export default function App() {
             </h2>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-4 md:gap-6 flex-1 min-h-0 overflow-y-auto mb-4 md:mb-6">
+          {/* Desktop: one scrollable grid (intro | stats). Mobile: two separate blocks, no inner scroll */}
+          <div className="grid md:grid-cols-2 gap-4 md:gap-6 md:flex-1 md:min-h-0 md:overflow-y-auto mb-4 md:mb-6">
+            {/* Intro text — own card on both */}
             <div className="p-5 md:p-6 rounded-2xl bg-gradient-to-br from-white/5 to-white/[0.02] border border-white/10 backdrop-blur-sm shrink-0 md:min-h-0 transition-all duration-300 hover:border-white/20 hover:shadow-[0_0_28px_rgba(139,92,246,0.22)]">
               <p className="text-sm md:text-base text-gray-300 leading-relaxed mb-4">
                 CS Demo Day is the University of Windsor's flagship Computer Science event, bringing together students, faculty, industry professionals, and recruiters to celebrate student innovation and excellence.
@@ -433,26 +435,32 @@ export default function App() {
                 Teams present their semester-long projects — from AI and machine learning systems to web apps, embedded systems, and beyond. It's a unique opportunity to showcase your work to a live audience and compete for recognition.
               </p>
             </div>
-            <div className="grid grid-cols-2 gap-3 md:gap-4 shrink-0">
-              <div className="p-4 md:p-5 rounded-2xl bg-gradient-to-br from-blue-500/10 to-blue-500/5 border border-blue-500/20 transition-all duration-300 hover:border-blue-500/40 hover:shadow-[0_0_24px_rgba(59,130,246,0.28)]">
-                <Users className="w-8 h-8 md:w-9 md:h-9 text-blue-400 mb-2 md:mb-3" />
-                <div className="text-2xl md:text-3xl font-bold mb-1">200+</div>
-                <div className="text-gray-400 text-sm md:text-base">Attendees</div>
-              </div>
-              <div className="p-4 md:p-5 rounded-2xl bg-gradient-to-br from-purple-500/10 to-purple-500/5 border border-purple-500/20 transition-all duration-300 hover:border-purple-500/40 hover:shadow-[0_0_24px_rgba(139,92,246,0.28)]">
-                <Lightbulb className="w-8 h-8 md:w-9 md:h-9 text-purple-400 mb-2 md:mb-3" />
-                <div className="text-2xl md:text-3xl font-bold mb-1">40+</div>
-                <div className="text-gray-400 text-sm md:text-base">Projects</div>
-              </div>
-              <div className="p-4 md:p-5 rounded-2xl bg-gradient-to-br from-purple-500/10 to-purple-500/5 border border-purple-500/20 transition-all duration-300 hover:border-purple-500/40 hover:shadow-[0_0_24px_rgba(139,92,246,0.28)]">
-                <Trophy className="w-8 h-8 md:w-9 md:h-9 text-purple-400 mb-2 md:mb-3" />
-                <div className="text-2xl md:text-3xl font-bold mb-1">12</div>
-                <div className="text-gray-400 text-sm md:text-base">Awards</div>
-              </div>
-              <div className="p-4 md:p-5 rounded-2xl bg-gradient-to-br from-blue-500/10 to-blue-500/5 border border-blue-500/20 transition-all duration-300 hover:border-blue-500/40 hover:shadow-[0_0_24px_rgba(59,130,246,0.28)]">
-                <Zap className="w-8 h-8 md:w-9 md:h-9 text-blue-400 mb-2 md:mb-3" />
-                <div className="text-2xl md:text-3xl font-bold mb-1">5th</div>
-                <div className="text-gray-400 text-sm md:text-base">Annual Event</div>
+            {/* Stats — on mobile: separate "By the numbers" box; on desktop: same grid cell, unchanged */}
+            <div className="md:min-h-0 flex flex-col">
+              <div className="p-4 rounded-2xl border border-white/10 bg-white/[0.02] md:p-0 md:border-0 md:bg-transparent md:rounded-none flex-1 min-h-0 flex flex-col justify-center">
+                <span className="text-xs uppercase tracking-wider text-blue-400/90 font-medium mb-3 block text-center md:hidden">By the numbers</span>
+                <div className="grid grid-cols-2 gap-3 md:gap-4 shrink-0">
+                  <div className="p-4 md:p-5 rounded-2xl bg-gradient-to-br from-blue-500/10 to-blue-500/5 border border-blue-500/20 transition-all duration-300 hover:border-blue-500/40 hover:shadow-[0_0_24px_rgba(59,130,246,0.28)]">
+                    <Users className="w-8 h-8 md:w-9 md:h-9 text-blue-400 mb-2 md:mb-3" />
+                    <div className="text-2xl md:text-3xl font-bold mb-1">200+</div>
+                    <div className="text-gray-400 text-sm md:text-base">Attendees</div>
+                  </div>
+                  <div className="p-4 md:p-5 rounded-2xl bg-gradient-to-br from-purple-500/10 to-purple-500/5 border border-purple-500/20 transition-all duration-300 hover:border-purple-500/40 hover:shadow-[0_0_24px_rgba(139,92,246,0.28)]">
+                    <Lightbulb className="w-8 h-8 md:w-9 md:h-9 text-purple-400 mb-2 md:mb-3" />
+                    <div className="text-2xl md:text-3xl font-bold mb-1">40+</div>
+                    <div className="text-gray-400 text-sm md:text-base">Projects</div>
+                  </div>
+                  <div className="p-4 md:p-5 rounded-2xl bg-gradient-to-br from-purple-500/10 to-purple-500/5 border border-purple-500/20 transition-all duration-300 hover:border-purple-500/40 hover:shadow-[0_0_24px_rgba(139,92,246,0.28)]">
+                    <Trophy className="w-8 h-8 md:w-9 md:h-9 text-purple-400 mb-2 md:mb-3" />
+                    <div className="text-2xl md:text-3xl font-bold mb-1">12</div>
+                    <div className="text-gray-400 text-sm md:text-base">Awards</div>
+                  </div>
+                  <div className="p-4 md:p-5 rounded-2xl bg-gradient-to-br from-blue-500/10 to-blue-500/5 border border-blue-500/20 transition-all duration-300 hover:border-blue-500/40 hover:shadow-[0_0_24px_rgba(59,130,246,0.28)]">
+                    <Zap className="w-8 h-8 md:w-9 md:h-9 text-blue-400 mb-2 md:mb-3" />
+                    <div className="text-2xl md:text-3xl font-bold mb-1">5th</div>
+                    <div className="text-gray-400 text-sm md:text-base">Annual Event</div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
