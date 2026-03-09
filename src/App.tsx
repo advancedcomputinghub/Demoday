@@ -224,7 +224,7 @@ export default function App() {
         className="h-screen overflow-y-auto snap-y snap-mandatory scroll-smooth"
       >
       {/* Hero Section */}
-      <section id="hero" className="relative pt-24 pb-14 px-4 sm:px-6 md:pt-32 md:pb-20 md:px-6 overflow-hidden min-h-screen flex items-center snap-start snap-always">
+      <section id="hero" className="relative pt-24 pb-14 px-4 sm:px-6 md:pt-32 md:pb-20 md:px-6 min-h-screen flex items-start md:items-center overflow-y-auto md:overflow-hidden snap-start snap-always">
         {/* Background Effects */}
         <div className="absolute inset-0 bg-gradient-to-b from-blue-950/20 via-purple-950/20 to-[#0a0a0f]"></div>
         <div className="absolute top-0 left-1/4 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl"></div>
@@ -239,9 +239,9 @@ export default function App() {
         </div>
 
         <div className="max-w-7xl mx-auto relative z-10 w-full">
-          <div className="text-center mb-16">
+          <div className="text-center mb-8 md:mb-16">
             {/* Animated Title Section */}
-            <div className="relative h-[360px] sm:h-[400px] md:h-[500px] flex items-center justify-center">
+            <div className="relative w-full min-h-0 h-auto md:h-[500px] flex flex-col items-center justify-start md:justify-center pt-2 pb-8 md:py-0">
               <AnimatePresence mode="wait">
                 {heroStage === 1 && (
                   <motion.div
@@ -250,7 +250,7 @@ export default function App() {
                     animate={{ opacity: 1, scale: 1, y: 0 }}
                     exit={{ opacity: 0, scale: 1.08, y: -8 }}
                     transition={{ duration: 0.7, ease: "easeInOut" }}
-                    className="absolute inset-0 flex flex-col items-center justify-center"
+                    className="relative md:absolute md:inset-0 flex flex-col items-center justify-center w-full"
                   >
                     <img
                       src={`${import.meta.env.BASE_URL}uw-logo-full.png`}
@@ -272,9 +272,9 @@ export default function App() {
                     initial={{ opacity: 0, scale: 0.9, y: 20 }}
                     animate={{ opacity: 1, scale: 1, y: 0 }}
                     transition={{ duration: 1, ease: "easeOut" }}
-                    className="absolute inset-0 flex flex-col items-center justify-center"
+                    className="relative md:absolute md:inset-0 flex flex-col items-center justify-center w-full"
                   >
-                    <div className="inline-flex flex-col items-center gap-1 mb-8 [text-shadow:0_0_20px_rgba(255,255,255,0.3),0_0_40px_rgba(192,132,252,0.25),0_0_60px_rgba(139,92,246,0.15)]">
+                    <div className="inline-flex flex-col items-center gap-1 mb-6 md:mb-8 [text-shadow:0_0_20px_rgba(255,255,255,0.3),0_0_40px_rgba(192,132,252,0.25),0_0_60px_rgba(139,92,246,0.15)]">
                       {countdown.status === 'countdown' && (
                         <div className="inline-flex items-center gap-3 sm:gap-5">
                           <div className="flex flex-col items-center">
