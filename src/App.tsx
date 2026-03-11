@@ -4,7 +4,7 @@ import { Carousel } from './components/ui/carousel';
 import { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence, useInView } from 'motion/react';
 
-const SECTION_IDS = ['hero', 'about', 'submit', 'attend', 'schedule', 'faq'] as const;
+const SECTION_IDS = ['hero', 'about', 'gallery', 'submit', 'attend', 'schedule', 'faq'] as const;
 
 const scheduleStaggerVariants = { hidden: {}, visible: { transition: { staggerChildren: 0.065, delayChildren: 0.12 } } };
 const scheduleItemVariants = { hidden: { opacity: 0, y: 16 }, visible: { opacity: 1, y: 0, transition: { duration: 0.4 } } };
@@ -142,9 +142,19 @@ export default function App() {
               About
             </button>
             <button
-              onClick={() => scrollToSection('submit')}
+              onClick={() => scrollToSection('gallery')}
               className={`pb-0.5 border-b-2 transition-all duration-300 ${
                 activeSectionIndex === 2
+                  ? 'text-white border-white/70 [text-shadow:0_0_12px_rgba(255,255,255,0.35),0_0_24px_rgba(192,132,252,0.4),0_0_36px_rgba(139,92,246,0.2)]'
+                  : 'text-gray-400 hover:text-white hover:border-white/50 border-transparent hover:[text-shadow:0_0_12px_rgba(255,255,255,0.35),0_0_24px_rgba(192,132,252,0.4),0_0_36px_rgba(139,92,246,0.2)]'
+              }`}
+            >
+              Gallery
+            </button>
+            <button
+              onClick={() => scrollToSection('submit')}
+              className={`pb-0.5 border-b-2 transition-all duration-300 ${
+                activeSectionIndex === 3
                   ? 'text-white border-white/70 [text-shadow:0_0_12px_rgba(255,255,255,0.35),0_0_24px_rgba(192,132,252,0.4),0_0_36px_rgba(139,92,246,0.2)]'
                   : 'text-gray-400 hover:text-white hover:border-white/50 border-transparent hover:[text-shadow:0_0_12px_rgba(255,255,255,0.35),0_0_24px_rgba(192,132,252,0.4),0_0_36px_rgba(139,92,246,0.2)]'
               }`}
@@ -154,7 +164,7 @@ export default function App() {
             <button
               onClick={() => scrollToSection('attend')}
               className={`pb-0.5 border-b-2 transition-all duration-300 ${
-                activeSectionIndex === 3
+                activeSectionIndex === 4
                   ? 'text-white border-white/70 [text-shadow:0_0_12px_rgba(255,255,255,0.35),0_0_24px_rgba(192,132,252,0.4),0_0_36px_rgba(139,92,246,0.2)]'
                   : 'text-gray-400 hover:text-white hover:border-white/50 border-transparent hover:[text-shadow:0_0_12px_rgba(255,255,255,0.35),0_0_24px_rgba(192,132,252,0.4),0_0_36px_rgba(139,92,246,0.2)]'
               }`}
@@ -164,7 +174,7 @@ export default function App() {
             <button
               onClick={() => scrollToSection('schedule')}
               className={`pb-0.5 border-b-2 transition-all duration-300 ${
-                activeSectionIndex === 4
+                activeSectionIndex === 5
                   ? 'text-white border-white/70 [text-shadow:0_0_12px_rgba(255,255,255,0.35),0_0_24px_rgba(192,132,252,0.4),0_0_36px_rgba(139,92,246,0.2)]'
                   : 'text-gray-400 hover:text-white hover:border-white/50 border-transparent hover:[text-shadow:0_0_12px_rgba(255,255,255,0.35),0_0_24px_rgba(192,132,252,0.4),0_0_36px_rgba(139,92,246,0.2)]'
               }`}
@@ -174,7 +184,7 @@ export default function App() {
             <button
               onClick={() => scrollToSection('faq')}
               className={`pb-0.5 border-b-2 transition-all duration-300 ${
-                activeSectionIndex === 5
+                activeSectionIndex === 6
                   ? 'text-white border-white/70 [text-shadow:0_0_12px_rgba(255,255,255,0.35),0_0_24px_rgba(192,132,252,0.4),0_0_36px_rgba(139,92,246,0.2)]'
                   : 'text-gray-400 hover:text-white hover:border-white/50 border-transparent hover:[text-shadow:0_0_12px_rgba(255,255,255,0.35),0_0_24px_rgba(192,132,252,0.4),0_0_36px_rgba(139,92,246,0.2)]'
               }`}
@@ -216,6 +226,7 @@ export default function App() {
             >
               {[
                 { id: 'about', label: 'About' },
+                { id: 'gallery', label: 'Gallery' },
                 { id: 'submit', label: 'Apply' },
                 { id: 'attend', label: 'Attend' },
                 { id: 'schedule', label: 'Schedule' },
@@ -520,7 +531,7 @@ export default function App() {
             <p className="text-gray-400 text-lg">See the innovation and energy from previous Demo Days</p>
           </div>
 
-          <div className="w-full rounded-2xl overflow-hidden max-h-[500px] md:max-h-[550px]">
+          <div className="w-full rounded-2xl overflow-hidden max-h-[500px] md:max-h-[550px] h-[500px] md:h-[550px]">
             <Carousel images={CAROUSEL_IMAGES} autoPlay autoPlayInterval={4000} />
           </div>
         </div>
