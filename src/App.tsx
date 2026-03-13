@@ -3,6 +3,7 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from './
 import { Carousel } from './components/ui/carousel';
 import { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence, useInView } from 'motion/react';
+import { useNavigate } from 'react-router-dom';
 
 const SECTION_IDS = ['hero', 'about', 'gallery', 'submit', 'attend', 'schedule', 'faq'] as const;
 
@@ -12,26 +13,72 @@ const scheduleItemVariants = { hidden: { opacity: 0, y: 16 }, visible: { opacity
 const PARTICIPANT_REGISTRATION_URL = 'https://docs.google.com/forms/d/e/1FAIpQLSelqknwzF-ht4gNg1FALEAf7pL-A8gUeTTS9CnCIv5bBvr4nQ/viewform';
 const PROJECT_SUBMISSION_URL = 'https://docs.google.com/forms/d/e/1FAIpQLSevBxky8AILviHbGyK3XLmtiOqw8ddW8tQ0AIy7ZLS1MInYBg/viewform';
 
-const CAROUSEL_IMAGES = [
-  {
-    src: 'https://images.unsplash.com/photo-1552664730-d307ca884978?w=800&h=600&fit=crop',
-    alt: 'Students collaborating on a tech project',
-    title: 'Innovation in Action',
-  },
-  {
-    src: 'https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=800&h=600&fit=crop',
-    alt: 'Computer science students working together',
-    title: 'Teamwork & Collaboration',
-  },
-  {
-    src: 'https://images.unsplash.com/photo-1552664730-d307ca884978?w=800&h=600&fit=crop',
-    alt: 'Technology and development showcase',
-    title: 'Cutting Edge Projects',
-  },
-];
+// This just takes the names and appends it to the path, so to add new images you can just drop them in the folder and name them in the format "1.jpg", "2.jpg", etc. for correct ordering. Supported formats are jpg and jpeg.
+const imageModules = import.meta.glob<{ default: string }>('/public/prev-demoday-images/*.{jpg,jpeg}', { eager: true });
+const CAROUSEL_IMAGES = Object.entries(imageModules).map(([path, module], index) => ({
+  src: module.default,
+  alt: `${index + 1}`,
+})).sort((a, b) => {
+  const numA = parseInt(a.alt);
+  const numB = parseInt(b.alt);
+  return numA - numB;
+});
+
+// Load team member images from /public/team-pics/
+const teamImageModules = import.meta.glob<{ default: string }>('/public/team-pics/*.{jpg,jpeg,png}', { eager: true });
+
+const getTeamImagePath = (name: string): string => {
+  // Convert name to possible filename formats
+  // Remove common titles/prefixes first
+  let cleanedName = name.toLowerCase().replace(/^(dr\.|mr\.|mrs\.|ms\.|prof\.|professor)\s+/i, '');
+  const nameParts = cleanedName.split(/\s+/);
+  const firstNameOnly = nameParts[0];
+  const lastNameOnly = nameParts[nameParts.length - 1];
+  const firstAndLast = `${nameParts[0]}-${nameParts[nameParts.length - 1]}`;
+  const firstAndLastUnderscore = `${nameParts[0]}_${nameParts[nameParts.length - 1]}`;
+  
+  const nameFormats = [
+    name.toLowerCase().replace(/\s+/g, '-'),
+    name.toLowerCase().replace(/\s+/g, '_'),
+    name.toLowerCase(),
+    firstAndLast,
+    firstAndLastUnderscore,
+    firstNameOnly,
+    lastNameOnly,
+  ];
+  
+  for (const format of nameFormats) {
+    for (const [path, module] of Object.entries(teamImageModules)) {
+      if (path.toLowerCase().includes(format)) {
+        return module.default;
+      }
+    }
+  }
+  
+  // Fallback to placeholder
+  return `${import.meta.env.BASE_URL}team-placeholder.jpg`;
+};
 
 const EVENT_DATE = new Date('2026-03-27T10:00:00');
 const EVENT_END_DATE = new Date('2026-03-27T12:30:00'); // 12:30 PM
+
+const TEAM_MEMBERS_BASE = [
+  { id: 1, name: 'Dr. Ziad Kobti', designation: 'Director, School of Computer Science' },
+  { id: 2, name: 'Dr. Boubakeur Boufama', designation: 'Master of Applied Computing Chair' },
+  { id: 3, name: 'Dr. Kalyani Selvarajah', designation: 'Demo Day Chair' },
+  { id: 4, name: 'Dr. Prashanth Cheluvasai Ranga', designation: 'Demo Day Co-Chair' },
+  { id: 5, name: 'Dr. Olena Syrotkina', designation: 'Demo Day Project Selection Committee' },
+  { id: 6, name: 'Dr. Aznam Yacoub', designation: 'Demo Day Project Selection Committee' },
+  { id: 7, name: 'Dr. Shaoquan Jiang', designation: 'Demo Day Poster Presentation Committee' },
+  { id: 8, name: 'Mrs. Katie Noonan', designation: 'MAC Program Secretary' },
+  { id: 9, name: 'Mr. Rithish Ashwin Suresh Kumar', designation: 'Website Development' },
+  { id: 10, name: 'Mr. Mohammad Faisal Alam', designation: 'Website Development' },
+];
+
+const TEAM_MEMBERS = TEAM_MEMBERS_BASE.map(member => ({
+  ...member,
+  image: getTeamImagePath(member.name)
+}));
 
 // Set to true to test: event "starts" in 5s, "ends" in 20s. Set back to false when done.
 const TEST_COUNTDOWN = false;
@@ -66,6 +113,7 @@ export default function App() {
   const scrollContainerRef = useRef<HTMLElement>(null);
   const scheduleRef = useRef<HTMLDivElement>(null);
   const scheduleInView = useInView(scheduleRef, { once: true, amount: 0.05 });
+  const navigate = useNavigate();
 
   useEffect(() => {
     const toDemoDay = setTimeout(() => setHeroStage(2), 1300);
@@ -191,6 +239,16 @@ export default function App() {
             >
               FAQ
             </button>
+            <button
+              onClick={() => navigate('/team')}
+              className={`pb-0.5 border-b-2 transition-all duration-300 ${
+                false
+                  ? 'text-white border-white/70 [text-shadow:0_0_12px_rgba(255,255,255,0.35),0_0_24px_rgba(192,132,252,0.4),0_0_36px_rgba(139,92,246,0.2)]'
+                  : 'text-gray-400 hover:text-white hover:border-white/50 border-transparent hover:[text-shadow:0_0_12px_rgba(255,255,255,0.35),0_0_24px_rgba(192,132,252,0.4),0_0_36px_rgba(139,92,246,0.2)]'
+              }`}
+            >
+              Our Team
+            </button>
           </div>
           <button
             type="button"
@@ -244,6 +302,15 @@ export default function App() {
                   {label}
                 </button>
               ))}
+              <button
+                onClick={() => {
+                  setMobileMenuOpen(false);
+                  navigate('/team');
+                }}
+                className="text-left py-3 px-4 rounded-xl text-lg font-medium transition-all min-h-[48px] text-gray-400 hover:text-white hover:bg-white/5"
+              >
+                Our Team
+              </button>
             </motion.div>
           </>
         )}
@@ -521,18 +588,18 @@ export default function App() {
       </section>
 
       {/* Gallery Section */}
-      <section id="gallery" className="py-12 px-4 sm:px-6 md:py-20 md:px-6 relative min-h-screen md:snap-start flex flex-col justify-center">
+      <section className="py-12 px-4 sm:px-6 md:py-20 md:px-6 relative min-h-screen flex flex-col justify-center">
         <div className="max-w-7xl mx-auto w-full">
           <div className="text-center shrink-0 mb-8 md:mb-12">
             <span className="text-xs md:text-sm uppercase tracking-wider text-purple-400 font-medium">Event Gallery</span>
-            <h2 className="text-3xl md:text-5xl mt-3 md:mt-4 mb-4">
+            <h2 id="gallery" className="text-3xl md:text-5xl mt-3 md:mt-4 mb-4 scroll-mt-20 md:snap-start">
               <span className="bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent">Highlights</span> From Past Events
             </h2>
             <p className="text-gray-400 text-lg">See the innovation and energy from previous Demo Days</p>
           </div>
 
           <div className="w-full rounded-2xl overflow-hidden max-h-[500px] md:max-h-[550px] h-[500px] md:h-[550px]">
-            <Carousel images={CAROUSEL_IMAGES} autoPlay autoPlayInterval={4000} />
+            <Carousel images={CAROUSEL_IMAGES} autoPlay autoPlayInterval={3850} />
           </div>
         </div>
       </section>
@@ -822,6 +889,8 @@ export default function App() {
         </div>
       </section>
 
+
+
       {/* Footer */}
       <footer id="footer" className="border-t border-white/10 py-8 px-4 sm:px-6 md:py-12 md:px-6 md:snap-start">
         <div className="max-w-7xl mx-auto">
@@ -856,6 +925,9 @@ export default function App() {
                 </button>
                 <button onClick={() => scrollToSection('faq')} className="block text-gray-400 hover:text-white transition-all duration-200 hover:[text-shadow:0_0_12px_rgba(255,255,255,0.35),0_0_24px_rgba(192,132,252,0.4),0_0_36px_rgba(139,92,246,0.2)]">
                   FAQ
+                </button>
+                <button onClick={() => navigate('/team')} className="block text-gray-400 hover:text-white transition-all duration-200 hover:[text-shadow:0_0_12px_rgba(255,255,255,0.35),0_0_24px_rgba(192,132,252,0.4),0_0_36px_rgba(139,92,246,0.2)]">
+                  Our Team
                 </button>
               </div>
             </div>

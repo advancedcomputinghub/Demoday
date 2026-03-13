@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 
@@ -15,16 +15,29 @@ interface CarouselProps {
 export function Carousel({ images, autoPlay = true, autoPlayInterval = 5000 }: CarouselProps) {
   const [current, setCurrent] = useState(0);
   const [direction, setDirection] = useState(0);
+  const timerRef = useRef<NodeJS.Timeout | null>(null);
 
-  useEffect(() => {
+  const startTimer = () => {
     if (!autoPlay || images.length <= 1) return;
-
-    const timer = setInterval(() => {
+    timerRef.current = setInterval(() => {
       setDirection(1);
       setCurrent((prev) => (prev + 1) % images.length);
     }, autoPlayInterval);
+  };
 
-    return () => clearInterval(timer);
+  const resetTimer = () => {
+    if (timerRef.current) {
+      clearInterval(timerRef.current);
+      timerRef.current = null;
+    }
+    startTimer();
+  };
+
+  useEffect(() => {
+    startTimer();
+    return () => {
+      if (timerRef.current) clearInterval(timerRef.current);
+    };
   }, [autoPlay, autoPlayInterval, images.length]);
 
   const slideVariants = {
@@ -47,6 +60,7 @@ export function Carousel({ images, autoPlay = true, autoPlayInterval = 5000 }: C
   const paginate = (newDirection: number) => {
     setDirection(newDirection);
     setCurrent((prev) => (prev + newDirection + images.length) % images.length);
+    resetTimer();
   };
 
   if (images.length === 0) return null;
@@ -67,7 +81,7 @@ export function Carousel({ images, autoPlay = true, autoPlayInterval = 5000 }: C
           <img
             src={images[current].src}
             alt={images[current].alt}
-            className="w-full h-full object-cover"
+            className="w-full h-full object-cover object-center"
           />
           {images[current].title && (
             <div className="absolute inset-0 flex items-end bg-gradient-to-t from-black/80 to-transparent p-6">
