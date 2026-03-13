@@ -3,7 +3,7 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from './
 import { Carousel } from './components/ui/carousel';
 import { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence, useInView } from 'motion/react';
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 const SECTION_IDS = ['hero', 'about', 'gallery', 'submit', 'attend', 'schedule', 'faq'] as const;
 
@@ -114,6 +114,7 @@ export default function App() {
   const scheduleRef = useRef<HTMLDivElement>(null);
   const scheduleInView = useInView(scheduleRef, { once: true, amount: 0.05 });
   const navigate = useNavigate();
+  const location = useLocation();
 
   useEffect(() => {
     const toDemoDay = setTimeout(() => setHeroStage(2), 1300);
@@ -125,6 +126,20 @@ export default function App() {
     const interval = setInterval(() => setCountdown(getCountdown()), 1000);
     return () => clearInterval(interval);
   }, []);
+
+  // Support deep links like "/#about" when navigating from other routes (e.g., /team)
+  useEffect(() => {
+    if (!location.hash) return;
+    const id = location.hash.replace('#', '');
+    if (!id) return;
+    const timeout = setTimeout(() => {
+      const el = document.getElementById(id);
+      if (el) {
+        el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    }, 0);
+    return () => clearTimeout(timeout);
+  }, [location.hash]);
 
   useEffect(() => {
     const container = scrollContainerRef.current;
