@@ -5,7 +5,7 @@ import { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence, useInView } from 'motion/react';
 import { useLocation, useNavigate } from 'react-router-dom';
 
-const SECTION_IDS = ['hero', 'about', 'gallery', 'submit', 'attend', 'schedule', 'faq'] as const;
+const SECTION_IDS = ['hero', 'about', 'gallery', 'submit', 'attend', 'schedule', 'faq', 'meet-the-team'] as const;
 
 const scheduleStaggerVariants = { hidden: {}, visible: { transition: { staggerChildren: 0.065, delayChildren: 0.12 } } };
 const scheduleItemVariants = { hidden: { opacity: 0, y: 16 }, visible: { opacity: 1, y: 0, transition: { duration: 0.4 } } };
@@ -27,7 +27,7 @@ const CAROUSEL_IMAGES = Object.entries(imageModules).map(([path, module], index)
 // Load team member images from /public/team-pics/
 const teamImageModules = import.meta.glob<{ default: string }>('/public/team-pics/*.{jpg,jpeg,png}', { eager: true });
 
-const getTeamImagePath = (name: string): string => {
+const getTeamImagePath = (name: string): string | null => {
   // Convert name to possible filename formats
   // Remove common titles/prefixes first
   let cleanedName = name.toLowerCase().replace(/^(dr\.|mr\.|mrs\.|ms\.|prof\.|professor)\s+/i, '');
@@ -55,8 +55,14 @@ const getTeamImagePath = (name: string): string => {
     }
   }
   
-  // Fallback to placeholder
-  return `${import.meta.env.BASE_URL}team-placeholder.jpg`;
+  return null;
+};
+
+const getInitials = (name: string): string => {
+  const cleaned = name.replace(/^(Dr\.|Mr\.|Mrs\.|Ms\.|Prof\.|Professor)\s+/i, '').trim();
+  const parts = cleaned.split(/\s+/);
+  if (parts.length === 1) return parts[0].charAt(0).toUpperCase();
+  return (parts[0].charAt(0) + parts[parts.length - 1].charAt(0)).toUpperCase();
 };
 
 const EVENT_DATE = new Date('2026-03-27T10:00:00');
@@ -77,8 +83,10 @@ const TEAM_MEMBERS_BASE = [
 
 const TEAM_MEMBERS = TEAM_MEMBERS_BASE.map(member => ({
   ...member,
-  image: getTeamImagePath(member.name)
+  image: getTeamImagePath(member.name),
 }));
+
+const TEAM_PREVIEW = TEAM_MEMBERS.slice(0, 4);
 
 // Set to true to test: event "starts" in 5s, "ends" in 20s. Set back to false when done.
 const TEST_COUNTDOWN = false;
@@ -261,9 +269,9 @@ export default function App() {
               FAQ
             </button>
             <button
-              onClick={() => navigate('/team')}
+              onClick={() => scrollToSection('meet-the-team')}
               className={`pb-0.5 border-b-2 transition-all duration-300 ${
-                false
+                activeSectionIndex === SECTION_IDS.indexOf('meet-the-team')
                   ? 'text-white border-white/70 [text-shadow:0_0_12px_rgba(255,255,255,0.35),0_0_24px_rgba(192,132,252,0.4),0_0_36px_rgba(139,92,246,0.2)]'
                   : 'text-gray-400 hover:text-white hover:border-white/50 border-transparent hover:[text-shadow:0_0_12px_rgba(255,255,255,0.35),0_0_24px_rgba(192,132,252,0.4),0_0_36px_rgba(139,92,246,0.2)]'
               }`}
@@ -324,10 +332,7 @@ export default function App() {
                 </button>
               ))}
               <button
-                onClick={() => {
-                  setMobileMenuOpen(false);
-                  navigate('/team');
-                }}
+                onClick={() => scrollToSection('meet-the-team')}
                 className="text-left py-3 px-4 rounded-xl text-lg font-medium transition-all min-h-[48px] text-gray-400 hover:text-white hover:bg-white/5"
               >
                 Our Team
@@ -910,7 +915,77 @@ export default function App() {
         </div>
       </section>
 
+      {/* Meet the Team Section — stacked circles, diffusing last, CTA to full team page */}
+      <section id="meet-the-team" className="relative min-h-screen md:snap-start flex flex-col justify-center py-16 px-4 sm:px-6 md:py-24 md:px-6 overflow-hidden">
+        {/* Slightly lighter background + soft glow behind stack */}
+        <div className="absolute inset-0 bg-[#0c0c14]" aria-hidden />
+        <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[min(100%,28rem)] h-64 md:h-80 bg-purple-500/[0.06] rounded-full blur-3xl" aria-hidden />
 
+        <div className="relative max-w-4xl mx-auto w-full text-center">
+          <span className="text-sm uppercase tracking-wider text-purple-400 font-medium">Our Team</span>
+          <h2 className="text-3xl md:text-5xl mt-3 md:mt-4">Meet the Team</h2>
+          <p className="text-gray-400 mt-6 max-w-xl mx-auto">
+            Faculty, staff and students from the School of Computer Science make Demo Day possible — from leadership and event coordination to committees and support.
+          </p>
+          <p className="text-gray-500 mt-3 text-sm">
+            Leadership · Event leads · Committees · Support
+          </p>
+
+          {/* Stacked overlapping circles: 3 key members + \"+N\" circle */}
+          <div className="flex justify-center items-end mt-12 md:mt-16">
+            <div className="relative flex justify-center items-end -space-x-6 md:-space-x-8">
+              {TEAM_PREVIEW.slice(0, 3).map((member, i) => {
+                const isRed = i < 2;
+                return (
+                  <div key={member.id} className="flex flex-col items-center shrink-0">
+                    <div
+                      className={`relative w-20 h-20 md:w-24 md:h-24 rounded-full overflow-hidden flex items-center justify-center flex-shrink-0 ring-2 ring-[#0c0c14] p-[2px] ${
+                        isRed
+                          ? 'bg-gradient-to-br from-red-500/50 via-rose-500/50 to-orange-400/50 shadow-[0_0_20px_rgba(248,113,113,0.3)] team-avatar-pulse-red'
+                          : 'bg-gradient-to-br from-purple-500/40 to-blue-500/40 shadow-[0_0_20px_rgba(139,92,246,0.28)] team-avatar-pulse-purple'
+                      }`}
+                    >
+                      <div className="w-full h-full rounded-full overflow-hidden bg-[#0a0a0f]">
+                        {member.image ? (
+                          <img src={member.image} alt="" className="w-full h-full object-cover" />
+                        ) : (
+                          <div className="w-full h-full flex items-center justify-center bg-[#050509]">
+                            <span className="text-lg md:text-xl font-semibold tracking-wide text-purple-100">
+                              {getInitials(member.name)}
+                            </span>
+                          </div>
+                        )}
+                      </div>
+                    </div>
+                  </div>
+                );
+              })}
+
+              {/* Fourth circle showing how many more team members are on the full page */}
+              <div className="flex flex-col items-center shrink-0">
+                <div className="relative w-20 h-20 md:w-24 md:h-24 rounded-full overflow-hidden flex items-center justify-center flex-shrink-0 ring-2 ring-[#0c0c14] p-[2px] bg-gradient-to-br from-purple-500/60 to-blue-500/60 shadow-[0_0_24px_rgba(139,92,246,0.4)]">
+                  <div className="w-full h-full rounded-full bg-[#0a0a0f] flex items-center justify-center">
+                    <span className="text-sm md:text-base font-semibold text-white">
+                      +{Math.max(0, TEAM_MEMBERS.length - 3)}
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <p className="text-gray-500 mt-4 text-sm">{TEAM_MEMBERS.length}+ faculty and staff</p>
+
+          <button
+            type="button"
+            onClick={() => navigate('/team')}
+            className="mt-10 inline-flex items-center justify-center gap-2 px-7 py-3 md:px-9 md:py-4 rounded-full border border-purple-400/50 bg-gradient-to-r from-purple-600/80 via-purple-500/80 to-blue-500/80 text-white font-semibold tracking-wide shadow-[0_0_22px_rgba(139,92,246,0.45)] hover:shadow-[0_0_32px_rgba(139,92,246,0.7)] hover:translate-y-0.5 transition-all duration-300"
+          >
+            <Users className="w-5 h-5" />
+            <span>View full team</span>
+          </button>
+        </div>
+      </section>
 
       {/* Footer */}
       <footer id="footer" className="border-t border-white/10 py-8 px-4 sm:px-6 md:py-12 md:px-6 md:snap-start">
@@ -947,7 +1022,7 @@ export default function App() {
                 <button onClick={() => scrollToSection('faq')} className="block text-gray-400 hover:text-white transition-all duration-200 hover:[text-shadow:0_0_12px_rgba(255,255,255,0.35),0_0_24px_rgba(192,132,252,0.4),0_0_36px_rgba(139,92,246,0.2)]">
                   FAQ
                 </button>
-                <button onClick={() => navigate('/team')} className="block text-gray-400 hover:text-white transition-all duration-200 hover:[text-shadow:0_0_12px_rgba(255,255,255,0.35),0_0_24px_rgba(192,132,252,0.4),0_0_36px_rgba(139,92,246,0.2)]">
+                <button onClick={() => scrollToSection('meet-the-team')} className="block text-gray-400 hover:text-white transition-all duration-200 hover:[text-shadow:0_0_12px_rgba(255,255,255,0.35),0_0_24px_rgba(192,132,252,0.4),0_0_36px_rgba(139,92,246,0.2)]">
                   Our Team
                 </button>
               </div>
