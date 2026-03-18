@@ -64,7 +64,7 @@ const getInitials = (name: string): string => {
   if (parts.length === 1) return parts[0].charAt(0).toUpperCase();
   return (parts[0].charAt(0) + parts[parts.length - 1].charAt(0)).toUpperCase();
 };
-
+const SELECTED_PROJECTS_DATE = new Date('2026-03-22T12:00:00'); // Mar 22, 2026 at noon
 const EVENT_DATE = new Date('2026-03-27T10:00:00');
 const EVENT_END_DATE = new Date('2026-03-27T12:30:00'); // 12:30 PM
 
@@ -257,6 +257,16 @@ export default function App() {
               }`}
             >
               Schedule
+            </button>
+            <button
+              onClick={() => navigate('/selected-projects')}
+              className={`pb-0.5 border-b-2 transition-all duration-300 ${
+                false
+                  ? 'text-white border-white/70 [text-shadow:0_0_12px_rgba(255,255,255,0.35),0_0_24px_rgba(192,132,252,0.4),0_0_36px_rgba(139,92,246,0.2)]'
+                  : 'text-gray-400 hover:text-white hover:border-white/50 border-transparent hover:[text-shadow:0_0_12px_rgba(255,255,255,0.35),0_0_24px_rgba(192,132,252,0.4),0_0_36px_rgba(139,92,246,0.2)]'
+              }`}
+            >
+              Selected Projects
             </button>
             <button
               onClick={() => scrollToSection('faq')}
@@ -549,11 +559,11 @@ export default function App() {
           {/* Desktop: one scrollable grid (intro | stats). Mobile: two separate blocks, no inner scroll */}
           <div className="grid md:grid-cols-2 gap-4 md:gap-6 md:flex-1 md:min-h-0 md:overflow-y-auto mb-4 md:mb-6">
             {/* Intro text — own card on both */}
-            <div className="p-5 md:p-6 rounded-2xl bg-gradient-to-br from-white/5 to-white/[0.02] border border-white/10 backdrop-blur-sm shrink-0 md:min-h-0 transition-all duration-300 hover:border-white/20 hover:shadow-[0_0_28px_rgba(139,92,246,0.22)]">
-              <p className="text-sm md:text-base text-gray-300 leading-relaxed mb-4">
+            <div className="p-5 md:p-6 rounded-2xl bg-gradient-to-br from-white/5 to-white/[0.02] border border-white/10 backdrop-blur-sm shrink-0 md:min-h-0 md:max-w-2xl transition-all duration-300 hover:border-white/20 hover:shadow-[0_0_28px_rgba(139,92,246,0.22)] md:mx-auto md:self-center">
+              <p className="text-sm md:text-xl text-gray-300 leading-relaxed mb-4">
                 CS Demo Day is the University of Windsor's flagship Computer Science event, bringing together students, faculty, industry professionals, and recruiters to celebrate student innovation and excellence.
               </p>
-              <p className="text-sm md:text-base text-gray-300 leading-relaxed">
+              <p className="text-sm md:text-xl text-gray-300 leading-relaxed">
                 Teams present their semester-long projects — from AI and machine learning systems to web apps, embedded systems, and beyond. It's a unique opportunity to showcase your work to a live audience and compete for recognition.
               </p>
             </div>
@@ -580,7 +590,7 @@ export default function App() {
                   <div className="p-4 md:p-5 rounded-2xl bg-gradient-to-br from-blue-500/10 to-blue-500/5 border border-blue-500/20 transition-all duration-300 hover:border-blue-500/40 hover:shadow-[0_0_24px_rgba(59,130,246,0.28)]">
                     <CalendarCheck className="w-8 h-8 md:w-9 md:h-9 text-blue-400 mb-2 md:mb-3" />
                     <div className="text-2xl md:text-3xl font-bold mb-1">5th</div>
-                    <div className="text-gray-400 text-sm md:text-base">Annual Event</div>
+                    <div className="text-gray-400 text-sm md:text-base">Event</div>
                   </div>
                 </div>
               </div>

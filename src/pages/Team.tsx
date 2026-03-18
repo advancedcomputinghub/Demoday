@@ -158,6 +158,12 @@ export default function Team() {
               FAQ
             </button>
             <button
+              onClick={() => navigate('/selected-projects')}
+              className="pb-0.5 border-b-2 transition-all duration-300 text-gray-400 hover:text-white hover:border-white/50 border-transparent hover:[text-shadow:0_0_12px_rgba(255,255,255,0.35),0_0_24px_rgba(192,132,252,0.4),0_0_36px_rgba(139,92,246,0.2)]"
+            >
+              Selected Projects
+            </button>
+            <button
               onClick={() => navigate('/team')}
               className="pb-0.5 border-b-2 transition-all duration-300 text-white border-white/70 [text-shadow:0_0_12px_rgba(255,255,255,0.35),0_0_24px_rgba(192,132,252,0.4),0_0_36px_rgba(139,92,246,0.2)]"
             >
