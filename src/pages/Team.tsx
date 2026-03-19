@@ -46,13 +46,48 @@ const getInitials = (name: string): string => {
 };
 
 const TEAM_MEMBERS_BASE = [
-  { id: 1, name: 'Dr. Ziad Kobti', designation: 'Director, School of Computer Science' },
-  { id: 2, name: 'Dr. Boubakeur Boufama', designation: 'Master of Applied Computing Chair' },
-  { id: 3, name: 'Dr. Kalyani Selvarajah', designation: 'Demo Day Chair' },
-  { id: 4, name: 'Dr. Prashanth Cheluvasai Ranga', designation: 'Demo Day Co-Chair' },
-  { id: 5, name: 'Dr. Olena Syrotkina', designation: 'Demo Day Project Selection Committee' },
-  { id: 6, name: 'Dr. Aznam Yacoub', designation: 'Demo Day Project Selection Committee' },
-  { id: 7, name: 'Dr. Shaoquan Jiang', designation: 'Demo Day Poster Presentation Committee' },
+  {
+    id: 1,
+    name: 'Dr. Ziad Kobti',
+    designation: 'Director, School of Computer Science',
+    url: 'https://www.uwindsor.ca/science/computerscience/1060/dr-ziad',
+  },
+  {
+    id: 2,
+    name: 'Dr. Boubakeur Boufama',
+    designation: 'Master of Applied Computing Chair',
+    url: 'https://www.uwindsor.ca/science/computerscience/1059/dr-boubakeur-boufama',
+  },
+  {
+    id: 3,
+    name: 'Dr. Kalyani Selvarajah',
+    designation: 'Demo Day Chair',
+    url: 'https://www.uwindsor.ca/science/computerscience/242401/dr-kalyani-selvarajah',
+  },
+  {
+    id: 4,
+    name: 'Dr. Prashanth Cheluvasai Ranga',
+    designation: 'Demo Day Co-Chair',
+    url: 'https://www.uwindsor.ca/science/computerscience/242400/dr-prashanth-cheluvasai-ranga',
+  },
+  {
+    id: 5,
+    name: 'Dr. Olena Syrotkina',
+    designation: 'Demo Day Project Selection Committee',
+    url: 'https://www.uwindsor.ca/science/computerscience/318557/dr-olena-syrotkina',
+  },
+  {
+    id: 6,
+    name: 'Dr. Aznam Yacoub',
+    designation: 'Demo Day Project Selection Committee',
+    url: 'https://www.uwindsor.ca/science/computerscience/242402/dr-aznam-yacoub',
+  },
+  {
+    id: 7,
+    name: 'Dr. Shaoquan Jiang',
+    designation: 'Demo Day Poster Presentation Committee',
+    url: 'https://www.uwindsor.ca/science/computerscience/242398/dr-shaoquan-jiang',
+  },
   { id: 8, name: 'Mrs. Katie Noonan', designation: 'MAC Program Secretary' },
   { id: 9, name: 'Mr. Rithish Ashwin Suresh Kumar', designation: 'Website Development' },
   { id: 10, name: 'Mr. Mohammad Faisal Alam', designation: 'Website Development' },
@@ -242,31 +277,62 @@ export default function Team() {
             <div className="space-y-4">
               <div className="flex flex-wrap justify-center gap-8 md:gap-12">
                 {TEAM_MEMBERS.slice(0, 2).map((member) => (
-                  <motion.div
-                    key={member.id}
-                    variants={itemVariants}
-                    className="group flex flex-col items-center text-center w-56 md:w-64"
-                  >
-                    <div className="w-32 h-32 md:w-40 md:h-40 mb-4 rounded-full overflow-hidden p-[3px] bg-gradient-to-br from-red-500/50 via-rose-500/50 to-orange-400/50 shadow-[0_0_24px_rgba(248,113,113,0.32)] group-hover:shadow-[0_0_32px_rgba(248,113,113,0.5)] transition-all duration-300 flex items-center justify-center team-avatar-pulse-red">
-                      <div className="w-full h-full rounded-full overflow-hidden bg-[#0a0a0f]">
-                        {member.image ? (
-                          <img
-                            src={member.image}
-                            alt={member.name}
-                            className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
-                          />
-                        ) : (
-                          <div className="w-full h-full flex items-center justify-center bg-[#050509]">
-                            <span className="text-xl md:text-2xl font-semibold tracking-wide text-purple-100">
-                              {getInitials(member.name)}
-                            </span>
-                          </div>
-                        )}
+                <motion.div
+                  key={member.id}
+                  variants={itemVariants}
+                  className="group flex flex-col items-center text-center w-56 md:w-64"
+                >
+                  {member.url ? (
+                    <a
+                      href={member.url}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="flex flex-col items-center text-center focus:outline-none focus-visible:ring-2 focus-visible:ring-purple-500/60 focus-visible:ring-offset-2 focus-visible:ring-offset-[#0a0a0f] rounded-xl"
+                    >
+                      <div className="w-32 h-32 md:w-40 md:h-40 mb-4 rounded-full overflow-hidden p-[3px] bg-gradient-to-br from-red-500/50 via-rose-500/50 to-orange-400/50 shadow-[0_0_24px_rgba(248,113,113,0.32)] group-hover:shadow-[0_0_32px_rgba(248,113,113,0.5)] transition-all duration-300 flex items-center justify-center team-avatar-pulse-red">
+                        <div className="w-full h-full rounded-full overflow-hidden bg-[#0a0a0f]">
+                          {member.image ? (
+                            <img
+                              src={member.image}
+                              alt={member.name}
+                              className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
+                            />
+                          ) : (
+                            <div className="w-full h-full flex items-center justify-center bg-[#050509]">
+                              <span className="text-xl md:text-2xl font-semibold tracking-wide text-purple-100">
+                                {getInitials(member.name)}
+                              </span>
+                            </div>
+                          )}
+                        </div>
                       </div>
-                    </div>
-                    <h3 className="text-lg md:text-xl font-semibold text-white mb-1">{member.name}</h3>
-                    <p className="text-sm md:text-base text-purple-200 font-medium">{member.designation}</p>
-                  </motion.div>
+                      <h3 className="text-lg md:text-xl font-semibold text-white mb-1">{member.name}</h3>
+                      <p className="text-sm md:text-base text-purple-200 font-medium">{member.designation}</p>
+                    </a>
+                  ) : (
+                    <>
+                      <div className="w-32 h-32 md:w-40 md:h-40 mb-4 rounded-full overflow-hidden p-[3px] bg-gradient-to-br from-red-500/50 via-rose-500/50 to-orange-400/50 shadow-[0_0_24px_rgba(248,113,113,0.32)] group-hover:shadow-[0_0_32px_rgba(248,113,113,0.5)] transition-all duration-300 flex items-center justify-center team-avatar-pulse-red">
+                        <div className="w-full h-full rounded-full overflow-hidden bg-[#0a0a0f]">
+                          {member.image ? (
+                            <img
+                              src={member.image}
+                              alt={member.name}
+                              className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
+                            />
+                          ) : (
+                            <div className="w-full h-full flex items-center justify-center bg-[#050509]">
+                              <span className="text-xl md:text-2xl font-semibold tracking-wide text-purple-100">
+                                {getInitials(member.name)}
+                              </span>
+                            </div>
+                          )}
+                        </div>
+                      </div>
+                      <h3 className="text-lg md:text-xl font-semibold text-white mb-1">{member.name}</h3>
+                      <p className="text-sm md:text-base text-purple-200 font-medium">{member.designation}</p>
+                    </>
+                  )}
+                </motion.div>
                 ))}
               </div>
             </div>
@@ -275,31 +341,62 @@ export default function Team() {
             <div className="space-y-4">
               <div className="flex flex-wrap justify-center gap-8 md:gap-12">
                 {TEAM_MEMBERS.slice(2, 4).map((member) => (
-                  <motion.div
-                    key={member.id}
-                    variants={itemVariants}
-                    className="group flex flex-col items-center text-center w-56 md:w-64"
-                  >
-                    <div className="w-32 h-32 md:w-40 md:h-40 mb-4 rounded-full overflow-hidden p-[3px] bg-gradient-to-br from-purple-500/40 to-blue-500/40 shadow-[0_0_24px_rgba(139,92,246,0.28)] group-hover:shadow-[0_0_32px_rgba(139,92,246,0.42)] transition-all duration-300 flex items-center justify-center team-avatar-pulse-purple">
-                      <div className="w-full h-full rounded-full overflow-hidden bg-[#0a0a0f]">
-                        {member.image ? (
-                          <img
-                            src={member.image}
-                            alt={member.name}
-                            className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
-                          />
-                        ) : (
-                          <div className="w-full h-full flex items-center justify-center bg-[#050509]">
-                            <span className="text-xl md:text-2xl font-semibold tracking-wide text-purple-100">
-                              {getInitials(member.name)}
-                            </span>
-                          </div>
-                        )}
+                <motion.div
+                  key={member.id}
+                  variants={itemVariants}
+                  className="group flex flex-col items-center text-center w-56 md:w-64"
+                >
+                  {member.url ? (
+                    <a
+                      href={member.url}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="flex flex-col items-center text-center focus:outline-none focus-visible:ring-2 focus-visible:ring-purple-500/60 focus-visible:ring-offset-2 focus-visible:ring-offset-[#0a0a0f] rounded-xl"
+                    >
+                      <div className="w-32 h-32 md:w-40 md:h-40 mb-4 rounded-full overflow-hidden p-[3px] bg-gradient-to-br from-purple-500/40 to-blue-500/40 shadow-[0_0_24px_rgba(139,92,246,0.28)] group-hover:shadow-[0_0_32px_rgba(139,92,246,0.42)] transition-all duration-300 flex items-center justify-center team-avatar-pulse-purple">
+                        <div className="w-full h-full rounded-full overflow-hidden bg-[#0a0a0f]">
+                          {member.image ? (
+                            <img
+                              src={member.image}
+                              alt={member.name}
+                              className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
+                            />
+                          ) : (
+                            <div className="w-full h-full flex items-center justify-center bg-[#050509]">
+                              <span className="text-xl md:text-2xl font-semibold tracking-wide text-purple-100">
+                                {getInitials(member.name)}
+                              </span>
+                            </div>
+                          )}
+                        </div>
                       </div>
-                    </div>
-                    <h3 className="text-lg md:text-xl font-semibold text-white mb-1">{member.name}</h3>
-                    <p className="text-sm md:text-base text-purple-200 font-medium">{member.designation}</p>
-                  </motion.div>
+                      <h3 className="text-lg md:text-xl font-semibold text-white mb-1">{member.name}</h3>
+                      <p className="text-sm md:text-base text-purple-200 font-medium">{member.designation}</p>
+                    </a>
+                  ) : (
+                    <>
+                      <div className="w-32 h-32 md:w-40 md:h-40 mb-4 rounded-full overflow-hidden p-[3px] bg-gradient-to-br from-purple-500/40 to-blue-500/40 shadow-[0_0_24px_rgba(139,92,246,0.28)] group-hover:shadow-[0_0_32px_rgba(139,92,246,0.42)] transition-all duration-300 flex items-center justify-center team-avatar-pulse-purple">
+                        <div className="w-full h-full rounded-full overflow-hidden bg-[#0a0a0f]">
+                          {member.image ? (
+                            <img
+                              src={member.image}
+                              alt={member.name}
+                              className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
+                            />
+                          ) : (
+                            <div className="w-full h-full flex items-center justify-center bg-[#050509]">
+                              <span className="text-xl md:text-2xl font-semibold tracking-wide text-purple-100">
+                                {getInitials(member.name)}
+                              </span>
+                            </div>
+                          )}
+                        </div>
+                      </div>
+                      <h3 className="text-lg md:text-xl font-semibold text-white mb-1">{member.name}</h3>
+                      <p className="text-sm md:text-base text-purple-200 font-medium">{member.designation}</p>
+                    </>
+                  )}
+                </motion.div>
                 ))}
               </div>
             </div>
@@ -313,25 +410,56 @@ export default function Team() {
                     variants={itemVariants}
                     className="group flex flex-col items-center text-center w-56 md:w-64"
                   >
-                    <div className="w-32 h-32 md:w-40 md:h-40 mb-4 rounded-full overflow-hidden p-[3px] bg-gradient-to-br from-purple-500/40 to-blue-500/40 shadow-[0_0_24px_rgba(139,92,246,0.28)] group-hover:shadow-[0_0_32px_rgba(139,92,246,0.42)] transition-all duration-300 flex items-center justify-center team-avatar-pulse-purple">
-                      <div className="w-full h-full rounded-full overflow-hidden bg-[#0a0a0f]">
-                        {member.image ? (
-                          <img
-                            src={member.image}
-                            alt={member.name}
-                            className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
-                          />
-                        ) : (
-                          <div className="w-full h-full flex items-center justify-center bg-[#050509]">
-                            <span className="text-xl md:text-2xl font-semibold tracking-wide text-purple-100">
-                              {getInitials(member.name)}
-                            </span>
+                    {member.url ? (
+                      <a
+                        href={member.url}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="flex flex-col items-center text-center focus:outline-none focus-visible:ring-2 focus-visible:ring-purple-500/60 focus-visible:ring-offset-2 focus-visible:ring-offset-[#0a0a0f] rounded-xl"
+                      >
+                        <div className="w-32 h-32 md:w-40 md:h-40 mb-4 rounded-full overflow-hidden p-[3px] bg-gradient-to-br from-purple-500/40 to-blue-500/40 shadow-[0_0_24px_rgba(139,92,246,0.28)] group-hover:shadow-[0_0_32px_rgba(139,92,246,0.42)] transition-all duration-300 flex items-center justify-center team-avatar-pulse-purple">
+                          <div className="w-full h-full rounded-full overflow-hidden bg-[#0a0a0f]">
+                            {member.image ? (
+                              <img
+                                src={member.image}
+                                alt={member.name}
+                                className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
+                              />
+                            ) : (
+                              <div className="w-full h-full flex items-center justify-center bg-[#050509]">
+                                <span className="text-xl md:text-2xl font-semibold tracking-wide text-purple-100">
+                                  {getInitials(member.name)}
+                                </span>
+                              </div>
+                            )}
                           </div>
-                        )}
-                      </div>
-                    </div>
-                    <h3 className="text-lg md:text-xl font-semibold text-white mb-1">{member.name}</h3>
-                    <p className="text-sm md:text-base text-purple-200 font-medium">{member.designation}</p>
+                        </div>
+                        <h3 className="text-lg md:text-xl font-semibold text-white mb-1">{member.name}</h3>
+                        <p className="text-sm md:text-base text-purple-200 font-medium">{member.designation}</p>
+                      </a>
+                    ) : (
+                      <>
+                        <div className="w-32 h-32 md:w-40 md:h-40 mb-4 rounded-full overflow-hidden p-[3px] bg-gradient-to-br from-purple-500/40 to-blue-500/40 shadow-[0_0_24px_rgba(139,92,246,0.28)] group-hover:shadow-[0_0_32px_rgba(139,92,246,0.42)] transition-all duration-300 flex items-center justify-center team-avatar-pulse-purple">
+                          <div className="w-full h-full rounded-full overflow-hidden bg-[#0a0a0f]">
+                            {member.image ? (
+                              <img
+                                src={member.image}
+                                alt={member.name}
+                                className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
+                              />
+                            ) : (
+                              <div className="w-full h-full flex items-center justify-center bg-[#050509]">
+                                <span className="text-xl md:text-2xl font-semibold tracking-wide text-purple-100">
+                                  {getInitials(member.name)}
+                                </span>
+                              </div>
+                            )}
+                          </div>
+                        </div>
+                        <h3 className="text-lg md:text-xl font-semibold text-white mb-1">{member.name}</h3>
+                        <p className="text-sm md:text-base text-purple-200 font-medium">{member.designation}</p>
+                      </>
+                    )}
                   </motion.div>
                 ))}
               </div>
