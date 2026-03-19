@@ -431,13 +431,32 @@ export default function Team() {
             <div className="flex flex-wrap justify-center gap-8 md:gap-12">
               {TEAM_MEMBERS.slice(7, 10).map((member) => (
                 <motion.div key={member.id} variants={itemVariants} className="group flex flex-col items-center text-center w-56 md:w-64">
-                  <div className="w-32 h-32 md:w-40 md:h-40 mb-4 rounded-full overflow-hidden p-[3px] bg-gradient-to-br from-purple-500/40 to-blue-500/40 shadow-[0_0_24px_rgba(139,92,246,0.28)] group-hover:shadow-[0_0_32px_rgba(139,92,246,0.42)] transition-all duration-300 flex items-center justify-center team-avatar-pulse-purple">
-                    <div className="w-full h-full rounded-full overflow-hidden bg-[#0a0a0f]">
-                      {member.image ? <img src={member.image} alt={member.name} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300" /> : <div className="w-full h-full flex items-center justify-center bg-[#050509]"><span className="text-xl md:text-2xl font-semibold tracking-wide text-purple-100">{getInitials(member.name)}</span></div>}
-                    </div>
-                  </div>
-                  <h3 className="text-lg md:text-xl font-semibold text-white mb-1">{member.name}</h3>
-                  <p className="text-sm md:text-base text-purple-200 font-medium">{member.designation}</p>
+                  {member.url ? (
+                    <a
+                      href={member.url}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="flex flex-col items-center text-center focus:outline-none focus-visible:ring-2 focus-visible:ring-purple-500/60 focus-visible:ring-offset-2 focus-visible:ring-offset-[#0a0a0f] rounded-xl"
+                    >
+                      <div className="w-32 h-32 md:w-40 md:h-40 mb-4 rounded-full overflow-hidden p-[3px] bg-gradient-to-br from-purple-500/40 to-blue-500/40 shadow-[0_0_24px_rgba(139,92,246,0.28)] group-hover:shadow-[0_0_32px_rgba(139,92,246,0.42)] transition-all duration-300 flex items-center justify-center team-avatar-pulse-purple">
+                        <div className="w-full h-full rounded-full overflow-hidden bg-[#0a0a0f]">
+                          {member.image ? <img src={member.image} alt={member.name} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300" /> : <div className="w-full h-full flex items-center justify-center bg-[#050509]"><span className="text-xl md:text-2xl font-semibold tracking-wide text-purple-100">{getInitials(member.name)}</span></div>}
+                        </div>
+                      </div>
+                      <h3 className="text-lg md:text-xl font-semibold text-white mb-1">{member.name}</h3>
+                      <p className="text-sm md:text-base text-purple-200 font-medium">{member.designation}</p>
+                    </a>
+                  ) : (
+                    <>
+                      <div className="w-32 h-32 md:w-40 md:h-40 mb-4 rounded-full overflow-hidden p-[3px] bg-gradient-to-br from-purple-500/40 to-blue-500/40 shadow-[0_0_24px_rgba(139,92,246,0.28)] group-hover:shadow-[0_0_32px_rgba(139,92,246,0.42)] transition-all duration-300 flex items-center justify-center team-avatar-pulse-purple">
+                        <div className="w-full h-full rounded-full overflow-hidden bg-[#0a0a0f]">
+                          {member.image ? <img src={member.image} alt={member.name} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300" /> : <div className="w-full h-full flex items-center justify-center bg-[#050509]"><span className="text-xl md:text-2xl font-semibold tracking-wide text-purple-100">{getInitials(member.name)}</span></div>}
+                        </div>
+                      </div>
+                      <h3 className="text-lg md:text-xl font-semibold text-white mb-1">{member.name}</h3>
+                      <p className="text-sm md:text-base text-purple-200 font-medium">{member.designation}</p>
+                    </>
+                  )}
                 </motion.div>
               ))}
             </div>

@@ -570,12 +570,12 @@ export default function App() {
                   </div>
                   <div className="p-4 md:p-5 rounded-2xl bg-gradient-to-br from-purple-500/10 to-purple-500/5 border border-purple-500/20 transition-all duration-300 hover:border-purple-500/40 hover:shadow-[0_0_24px_rgba(139,92,246,0.28)]">
                     <Trophy className="w-8 h-8 md:w-9 md:h-9 text-purple-400 mb-2 md:mb-3" />
-                    <div className="text-2xl md:text-3xl font-bold mb-1">12</div>
+                    <div className="text-2xl md:text-3xl font-bold mb-1">7</div>
                     <div className="text-gray-400 text-sm md:text-base">Awards</div>
                   </div>
                   <div className="p-4 md:p-5 rounded-2xl bg-gradient-to-br from-blue-500/10 to-blue-500/5 border border-blue-500/20 transition-all duration-300 hover:border-blue-500/40 hover:shadow-[0_0_24px_rgba(59,130,246,0.28)]">
                     <CalendarCheck className="w-8 h-8 md:w-9 md:h-9 text-blue-400 mb-2 md:mb-3" />
-                    <div className="text-2xl md:text-3xl font-bold mb-1">5th</div>
+                    <div className="text-2xl md:text-3xl font-bold mb-1">14th</div>
                     <div className="text-gray-400 text-sm md:text-base">Event</div>
                   </div>
                 </div>
