@@ -86,7 +86,7 @@ const TEAM_MEMBERS_BASE = [
     url: 'https://www.uwindsor.ca/science/computerscience/242398/dr-shaoquan-jiang',
   },
   { id: 8, name: 'Mrs. Katie Noonan', designation: 'MAC Program Secretary' },
-  { id: 9, name: 'Mr. Rithish Ashwin Suresh Kumar', designation: 'Website Development' },
+  { id: 9, name: 'Mr. Rithish Ashwin Suresh Kumar', designation: 'Website Development', url: 'www.linkedin.com/in/rithish-ashwin' },
   { id: 10, name: 'Mr. Mohammad Faisal Alam', designation: 'Website Development' },
 ];
 
