@@ -4,7 +4,7 @@ import react from '@vitejs/plugin-react';
 import { defineConfig } from 'vite';
 
 export default defineConfig({
-  base: '/CS-Demo-Day-Landing-2026/', // required for GitHub Pages project site
+  bbase: '/Demoday/', // required for GitHub Pages project site
   plugins: [react(), tailwindcss()],
   resolve: {
     alias: {
