@@ -2,5 +2,5 @@
   "name": "Kik's Dev Environment",
   "image": "mcr.microsoft.com/devcontainers/universal:2",
   "forwardPorts": [3000, 8080],
-  "postCreateCommand": "npm install,"
+  "postCreateCommand": "npm install"
 }

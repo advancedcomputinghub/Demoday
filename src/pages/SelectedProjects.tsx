@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Calendar, MapPin, Clock, Menu, X } from 'lucide-react';
-import { SUBMISSION_DEADLINE_DATE } from '../constants/dates';
+import { EVENT_DATE, SUBMISSION_DEADLINE_DATE } from '../constants/dates';
 
 //const SUBMISSION_DEADLINE_DATE = new Date('2026-03-20T12:00:00'); // Mar 20, 2026 at noon
 
@@ -196,7 +196,7 @@ export default function SelectedProjects() {
               <div className="space-y-3 text-gray-400">
                 <div className="flex items-start gap-2">
                   <Calendar className="w-5 h-5 text-purple-400 mt-0.5 flex-shrink-0" />
-                  <span>March 27, 2026</span>
+                  <span>{EVENT_DATE.toDateString()}</span>
                 </div>
                 <div className="flex items-start gap-1.5">
                   <MapPin className="w-5 h-5 text-blue-400 mt-0.5 flex-shrink-0" />
@@ -211,7 +211,7 @@ export default function SelectedProjects() {
           </div>
           <div className="pt-8 border-t border-white/10 flex flex-col md:flex-row items-center justify-between gap-4">
             <p className="text-gray-400 text-sm">© 2026 School of Computer Science, University of Windsor. All rights reserved.</p>
-            <p className="text-gray-400 text-sm">Submission deadline: <span className="text-white">March 20, 2026</span></p>
+            <p className="text-gray-400 text-sm">Submission deadline: <span className="text-white">{EVENT_DATE.toDateString()}</span></p>
           </div>
         </div>
       </footer>

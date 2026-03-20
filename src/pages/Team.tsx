@@ -2,7 +2,7 @@ import { useRef, useEffect, useState } from 'react';
 import { motion, useInView } from 'motion/react';
 import { Calendar, MapPin, Clock, Menu, X } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
-import { SUBMISSION_DEADLINE_DATE } from '../constants/dates';
+import { SUBMISSION_DEADLINE_DATE, EVENT_DATE } from '../constants/dates';
 
 const teamImageModules = import.meta.glob<{ default: string }>('/public/team-pics/*.{jpg,jpeg,png}', { eager: true });
 
@@ -498,7 +498,7 @@ export default function Team() {
               <div className="space-y-3 text-gray-400">
                 <div className="flex items-start gap-2">
                   <Calendar className="w-5 h-5 text-purple-400 mt-0.5 flex-shrink-0" />
-                  <span>March 27, 2026</span>
+                  <span>{EVENT_DATE.toDateString()}</span>
                 </div>
                 <div className="flex items-start gap-1.5">
                   <MapPin className="w-5 h-5 text-blue-400 mt-0.5 flex-shrink-0" />
@@ -513,7 +513,7 @@ export default function Team() {
           </div>
           <div className="pt-8 border-t border-white/10 flex flex-col md:flex-row items-center justify-between gap-4">
             <p className="text-gray-400 text-sm">© 2026 School of Computer Science, University of Windsor. All rights reserved.</p>
-            <p className="text-gray-400 text-sm">Submission deadline: <span className="text-white">March 20, 2026</span></p>
+            <p className="text-gray-400 text-sm">Submission deadline: <span className="text-white">{SUBMISSION_DEADLINE_DATE.toDateString()}</span></p>
           </div>
         </div>
       </footer>

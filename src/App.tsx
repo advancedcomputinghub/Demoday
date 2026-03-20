@@ -759,7 +759,7 @@ export default function App() {
           <div className="text-center mb-10 md:mb-16">
             <span className="text-sm uppercase tracking-wider text-purple-400 font-medium">Day of the Event</span>
             <h2 className="text-3xl md:text-5xl mt-3 md:mt-4 mb-4 [text-shadow:0_0_24px_rgba(192,132,252,0.25),0_0_48px_rgba(139,92,246,0.15)]">Schedule</h2>
-            <p className="text-gray-400 text-lg">March 27, 2026 · Advanced Computing Hub, University of Windsor</p>
+            <p className="text-gray-400 text-lg">{EVENT_DATE.toDateString()} · Advanced Computing Hub, University of Windsor</p>
           </div>
 
           <motion.div
@@ -842,7 +842,7 @@ export default function App() {
               </AccordionTrigger>
               <AccordionContent className="w-full px-4 py-4 md:px-6 md:py-6 bg-white/[0.03] rounded-b-xl border-t border-white/10">
                 <p className="text-gray-300 leading-relaxed">
-                  Friday, March 27, 2026, from 9:30 AM to 12:30 PM at the School of Computer Science Advanced Computing Hub, 300 Ouellette Avenue, 4th floor.
+                  {EVENT_DATE.toDateString()}, from 9:30 AM to 12:30 PM at the School of Computer Science Advanced Computing Hub, 300 Ouellette Avenue, 4th floor.
                 </p>
               </AccordionContent>
             </AccordionItem>
@@ -1056,7 +1056,7 @@ export default function App() {
               <div className="space-y-3 text-gray-400">
                 <div className="flex items-start gap-2">
                   <Calendar className="w-5 h-5 text-purple-400 mt-0.5 flex-shrink-0" />
-                  <span>March 27, 2026</span>
+                  <span>{EVENT_DATE.toDateString()}</span>
                 </div>
                 <div className="flex items-start gap-1.5">
                   <MapPin className="w-5 h-5 text-blue-400 mt-0.5 flex-shrink-0" />
@@ -1075,7 +1075,7 @@ export default function App() {
               © 2026 School of Computer Science, University of Windsor. All rights reserved.
             </p>
             <p className="text-gray-400 text-sm">
-              Submission deadline: <span className="text-white">March 20, 2026</span>
+              Submission deadline: <span className="text-white">{SUBMISSION_DEADLINE_DATE.toDateString()}</span>
             </p>
           </div>
         </div>
