@@ -133,6 +133,7 @@ export default function SelectedProjects() {
                 return haystack.includes(normalizedQuery);
               })
             : filtered;
+          searched.sort((a, b) => a.title.localeCompare(b.title, undefined, { sensitivity: 'base' }));
           const totalPages = Math.max(1, Math.ceil(searched.length / PAGE_SIZE));
           const clampedPage = Math.min(currentPage, totalPages);
           const pageStart = (clampedPage - 1) * PAGE_SIZE;

@@ -25,6 +25,14 @@ const FORM_FILE = path.join(root, 'data', 'Selected_Projects(Form Responses 1).c
 const POSTER_FILE = path.join(root, 'data', 'Selected_Projects(Poster).csv');
 const OUT_MERGED_CSV = path.join(root, 'data', 'selected-projects-merged.csv');
 const OUT_JSON = path.join(root, 'src', 'data', 'selected-projects.json');
+const FORCE_TBA_TITLES = new Set(['mindlog', 'dreamtale']);
+const FORCE_POSTER_ONLY_TITLES = new Set([
+  'secure blockchain integrated federated learning for iot',
+  'sentinelline ai driven malware triage',
+]);
+const FORCE_DEMO_ONLY_TITLES = new Set([
+  // Add normalized titles here when a project must be demo-only.
+]);
 
 function readUtf8(p) {
   return fs.readFileSync(p, 'utf8');
@@ -430,8 +438,8 @@ function main() {
     const posterForm = pm ? posterFormRows[pm.fi] : null;
 
     const onPosterSheet = Boolean(posterForm);
-    const demo = demoForm?.demo ?? posterForm?.demo ?? false;
-    const poster = onPosterSheet || Boolean(demoForm?.poster);
+    let demo = demoForm?.demo ?? posterForm?.demo ?? false;
+    let poster = onPosterSheet || Boolean(demoForm?.poster);
 
     let description = '';
     if (demoForm?.description) description = demoForm.description;
@@ -444,6 +452,20 @@ function main() {
     else if (posterForm?.team?.length) team = posterForm.team;
 
     const supervisor = demoForm?.supervisor || posterForm?.supervisor || '';
+
+    // Keep selected projects as TBA for team display when explicitly requested.
+    if (FORCE_TBA_TITLES.has(normalizeTitleLoose(lp.title))) {
+      team = [];
+    }
+    // Explicit overrides requested by organizers.
+    if (FORCE_POSTER_ONLY_TITLES.has(normalizeTitleLoose(lp.title))) {
+      demo = false;
+      poster = true;
+    }
+    if (FORCE_DEMO_ONLY_TITLES.has(normalizeTitleLoose(lp.title))) {
+      demo = true;
+      poster = false;
+    }
 
     let matchStatus = 'list_only';
     if (demoForm && posterForm) matchStatus = 'matched_both';

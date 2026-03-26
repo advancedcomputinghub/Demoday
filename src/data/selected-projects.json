@@ -54,7 +54,7 @@
           "Laeya Royan Sadhya",
           "Dev Patel"
         ],
-        "demo": true,
+        "demo": false,
         "poster": true,
         "supervisor": "Saeed Samet"
       },
@@ -81,7 +81,7 @@
           "Mona Hicham Moussa",
           "John Rafael Diaz Cabangon"
         ],
-        "demo": true,
+        "demo": false,
         "poster": true,
         "supervisor": "Professor Sherif Saad"
       },
@@ -626,9 +626,7 @@
         "id": "p-46",
         "title": "MindLog",
         "description": "MindLog is a smart mobile app that turns your everyday thoughts into meaningful stories. Instead of struggling to write long diary entries, you can simply speak or type naturally about your day'just like talking to a friend. Using powerful Artificial Intelligence, MindLog listens to your raw thoughts and automatically transforms them into clear, well-structured journal entries. It captures important moments, emotions, reflections, and lessons, helping you understand your day better without any extra effort. As days turn into weeks and months, MindLog builds a personal digital diary that grows with you. You can revisit past memories, edit entries, and reflect on your journey over time. This makes journaling easy, engaging, and stress-free, even for users who don't enjoy writing.",
-        "team": [
-          "Kalyani Selvarajah"
-        ],
+        "team": [],
         "demo": true,
         "poster": false,
         "supervisor": "Dr. Kalyani Selvarajah"
@@ -637,9 +635,7 @@
         "id": "p-47",
         "title": "DreamTale",
         "description": "DreamTale is a creative mobile app that lets users build and explore their own imaginary universe with the help of Artificial Intelligence. Instead of just reading stories, users become the creator of their own dream world. Users can design their world by setting its rules, creating characters, and defining the basic storyline. Once the world is created, DreamTale uses AI to automatically generate new story events and plot developments every day, making the world feel alive and constantly evolving. What makes DreamTale unique is that users are always in control. They can step in at any time to change the story, guide characters, or introduce new ideas. The story continues endlessly, growing richer over time, until the user decides to bring it to an end. DreamTale turns imagination into an interactive experience, blending creativity, storytelling, and AI into one immersive adventure.",
-        "team": [
-          "Kalyani Selvarajah"
-        ],
+        "team": [],
         "demo": true,
         "poster": false,
         "supervisor": "Dr. Kalyani Selvarajah"
