@@ -95,6 +95,28 @@ const TEAM_MEMBERS = TEAM_MEMBERS_BASE.map(member => ({
   image: getTeamImagePath(member.name)
 }));
 
+const VOLUNTEER_NAMES = [
+  'Ahmed Hasnia',
+  'Devu Babu Sheeja',
+  'Druvi Patel',
+  'Farzaneh Kazemzadeh',
+  'Faseeh U Rehman Qureshi',
+  'Ganiyat Afolabi-Yusuf',
+  'Haya Shah',
+  'Kavya Pageria',
+  'Mounika Boggarapu',
+  'Nishtha Pandya',
+  'Prabhjot Singh',
+  'Rabiya Javed Farooq',
+  'Rajbeer Kaur Dutta',
+  'Raman Joshi',
+  'Rohan',
+  'Shahin Zanbaghi',
+  'Steven Rice',
+  'Supan Guo',
+  'Vlad Tusinean',
+];
+
 export default function Team() {
   const navigate = useNavigate();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -460,6 +482,19 @@ export default function Team() {
                 </motion.div>
               ))}
             </div>
+
+            <motion.div variants={itemVariants} className="pt-4 md:pt-8">
+              <p className="text-center text-sm md:text-base text-gray-400 mb-4 md:mb-5">
+                With heartfelt thanks to our student volunteers for their time, effort, and dedication.
+              </p>
+              <div className="flex flex-wrap justify-center gap-x-6 gap-y-3">
+                {VOLUNTEER_NAMES.map((name) => (
+                  <span key={name} className="text-sm md:text-base text-gray-300">
+                    {name}
+                  </span>
+                ))}
+              </div>
+            </motion.div>
           </motion.div>
         </div>
       </main>

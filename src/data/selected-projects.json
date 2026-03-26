@@ -1,0 +1,741 @@
+[
+  {
+    "id": "zone-1",
+    "name": "Zone 1 Cybersecurity & Blockchain",
+    "theme": "Security, distributed systems, backend infrastructure, trust, verification",
+    "projects": [
+      {
+        "id": "p-01",
+        "title": "VeriPay",
+        "description": "VeriPay is an invoice verification technology that aids companies in securely detecting fraudulent or modified invoices. A synthesis of artificial intelligence, cryptography, and rule-based methodologies is employed to authenticate invoices submitted by users on the website. The system processes invoice data, verifying the accuracy of payment and invoice details while identifying errors or duplications. The front end was developed using Next.js, the back end was constructed with FastAPI, the database was implemented with PostgreSQL, and payment data was acquired and evaluated through AI models. VeriPay seeks to aid businesses in reducing financial fraud and enhancing consumer confidence during online transactions.",
+        "team": [
+          "Hassan Sajid",
+          "Meet Solanki",
+          "Aryan Sanghvi",
+          "Aryan Aryan",
+          "Brandon Jillson"
+        ],
+        "demo": true,
+        "poster": false,
+        "supervisor": "Professor Sherif Saad"
+      },
+      {
+        "id": "p-02",
+        "title": "MOSAIC (Multimodal Integrity Checker)",
+        "description": "MOSAIC is an AI-powered system that detects misinformation in social media posts by analyzing both the image and accompanying text together. A user submits a post, and seven specialized models trained across multiple real-world datasets evaluate whether the content appears manipulated or misleading. Their outputs are combined using weighted voting to produce a final credibility verdict, giving users a reliable tool to identify potentially fake or out-of-context media.",
+        "team": [
+          "Bhabin Pradhan",
+          "Amer Odobasic",
+          "Marc Rivas Deras",
+          "Darren Vo"
+        ],
+        "demo": true,
+        "poster": false,
+        "supervisor": "Dr. Ziad Kobti"
+      },
+      {
+        "id": "p-03",
+        "title": "TARA (Threat Analysis Risk Assistant)",
+        "description": "TARA is an AI-driven vulnerability explorer that aggregates CVE data and automatically translates it into structured, easy-to-understand automotive security profiles, helping students and engineers quickly assess risks and mitigations.",
+        "team": [
+          "Ibrahim Arain",
+          "Sahaj Kataria"
+        ],
+        "demo": true,
+        "poster": false,
+        "supervisor": "Ikjot Saini"
+      },
+      {
+        "id": "p-04",
+        "title": "Secure Blockchain-Integrated Federated Learning for IoT",
+        "description": "A privacy-preserving distributed machine learning system that combines Federated Learning with Blockchain technology to enable secure, verifiable model training across IoT edge devices. The system features anomaly detection using the NSL-KDD dataset, z-score-based poisoning detection, and reputation-weighted aggregation - all recorded on an immutable blockchain ledger.",
+        "team": [
+          "Kapilrajsinh Jadeja",
+          "Laeya Royan Sadhya",
+          "Dev Patel"
+        ],
+        "demo": true,
+        "poster": true,
+        "supervisor": "Saeed Samet"
+      },
+      {
+        "id": "p-05",
+        "title": "Securing EV Charging Networks",
+        "description": "We designed a blockchain-based EV charging system where the charger records session data and issues a secure token to the EV. A session can only resume if the EV provides a valid ID, token, and is within the expiry time, preventing unauthorized or replay attacks.",
+        "team": [
+          "Landon Hadre",
+          "Daniel Slobodnik"
+        ],
+        "demo": false,
+        "poster": true,
+        "supervisor": "Ikjot Saini"
+      },
+      {
+        "id": "p-06",
+        "title": "SentinelLine: AI-Driven Malware Triage",
+        "description": "SentinelLine is an intelligent extension to the open-source malware analysis platform Assemblyline. The system uses an agentic AI layer to automatically triage suspicious files, decide how deeply they should be analyzed, and provide explainable reasoning for each decision. By prioritizing high-risk samples and routing uncertain cases to human analysts, SentinelLine aims to improve cybersecurity efficiency while maintaining transparency and safety.",
+        "team": [
+          "Hadiyah Arif",
+          "Faria Islam",
+          "Roman Oglan",
+          "Mona Hicham Moussa",
+          "John Rafael Diaz Cabangon"
+        ],
+        "demo": true,
+        "poster": true,
+        "supervisor": "Professor Sherif Saad"
+      },
+      {
+        "id": "p-07",
+        "title": "VANET Intrusion Detection with ML",
+        "description": "As a part of an autonomous driving and intelligent transportation system, VANETs enable communication between vehicles and infrastructure to improve transportation safety and efficiency. However, their distributed and dynamic nature makes them vulnerable to various attacks. To address these security concerns, this project explores the use of machine learning techniques to detect attacks in the system. The proposed framework integrates multiple classic machine learning algorithms that are trained and evaluated using datasets representing different types of intrusion attacks. The results of this project contribute to understanding the effectiveness of machine learning approaches for intrusion detection in VANET environments and provide a foundation for further research and development of intelligent network security systems.",
+        "team": [
+          "Jasman Saran",
+          "Christine Wong",
+          "Asma Altumi"
+        ],
+        "demo": false,
+        "poster": true,
+        "supervisor": "Dr. Jaekel"
+      },
+      {
+        "id": "p-08",
+        "title": "Personalized Healthcare Monitoring with FL",
+        "description": "we use Federated learning for medical image classification using the MEDMINST dataset and split the images betenn clients using Dirichlet distribution",
+        "team": [
+          "sankalp talreja",
+          "Christian Philip",
+          "Abdul Atif"
+        ],
+        "demo": false,
+        "poster": true,
+        "supervisor": "Dr.Saeed Samet"
+      }
+    ]
+  },
+  {
+    "id": "zone-2",
+    "name": "Zone 2. Robotics, Simulation & Autonomy",
+    "theme": "Physical systems, simulation, control, perception, RL",
+    "projects": [
+      {
+        "id": "p-09",
+        "title": "Drone Sim",
+        "description": "This project is a drone simulation project in which we created a simulation environment to test a multitude of situations and conditions that an automated drone may face. We worked together to create a simulation environment with interactable and selectable levels for the user to send a drone through a variety of simulations to test automated scripts and pathfinding capabilities. The end goal of the project is to answer the question of how to maximize the drone's performance and mission outcomes with minimum cost or when sensors fail.",
+        "team": [
+          "Vinayak Bains",
+          "Matteo Iacono",
+          "John Millar",
+          "Jennifer Tan",
+          "Ekam Sial"
+        ],
+        "demo": true,
+        "poster": false,
+        "supervisor": "Ziad Kobti"
+      },
+      {
+        "id": "p-10",
+        "title": "MARL for Cooperative Autonomous Driving",
+        "description": "Our multi-agent reinforcement learning system enables autonomous vehicles to cooperatively navigate complex traffic scenarios. Through custom rewards for safety, efficiency, and coordination, independent agents develop behaviors that create smooth and cooperative traffic flow.",
+        "team": [
+          "Omar Elkott",
+          "David Shabo"
+        ],
+        "demo": true,
+        "poster": false,
+        "supervisor": "Shaon Shuvo"
+      },
+      {
+        "id": "p-11",
+        "title": "Vision-Based Obstacle Detection & 3D Reconstruction",
+        "description": "This project aims to build an offline computer vision system that processes smartphone video frames for tasks like extraction, segmentation, labeling, object detection with YOLO, and tracking. While 3D reconstruction is a stretch goal, the main focus is creating a reliable pipeline for detection and tracking that can later scale into full 3D modeling for advanced applications such as autonomous perception systems.",
+        "team": [
+          "Liam Mackenzie",
+          "Jabari Namuro",
+          "Haydar beydoun"
+        ],
+        "demo": true,
+        "poster": false,
+        "supervisor": "Boubakeur Boufama"
+      },
+      {
+        "id": "p-12",
+        "title": "Urban Traffic Optimizer",
+        "description": "The Urban Traffic Optimizer is a real-time analytics platform that uses Python and Eclipse SUMO to simulate and optimize urban intersection traffic. It features procedural map generation, algorithmic phase timing evaluation, and a live Streamlit dashboard for real-time performance visualization.",
+        "team": [
+          "Tonye Marcus",
+          "Jebriel Idwer",
+          "Victoria Odubunmi",
+          "Timmy Odinlo"
+        ],
+        "demo": true,
+        "poster": false,
+        "supervisor": "Saeed Samet"
+      },
+      {
+        "id": "p-13",
+        "title": "Visualization of generating randomly labeled forests",
+        "description": "My project visualizes a random labeled forest by creating a uniform random partition into N parts then uses Klingsberg's algorithm via Prufer Sequence to generate a randomly labeled trees.",
+        "team": [
+          "Madison Gosselin"
+        ],
+        "demo": true,
+        "poster": false,
+        "supervisor": "Dr. Asish Mukhopadhyay"
+      },
+      {
+        "id": "p-14",
+        "title": "Smart Cars using Raspberry Pi",
+        "description": "This project involves controlling two Raspberry Pi-based smart cars remotely using IP-based communication. The cars are designed to perform multiple intelligent tasks, including obstacle detection, color recognition, and line-following. By integrating sensors and camera modules, the system enables real-time navigation and decision-making, demonstrating concepts of robotics, computer vision, and network-based control.",
+        "team": [
+          "Harshitha Konduru Venkatesh",
+          "Nazim Ali",
+          "Fady Philips",
+          "Harsh Patel",
+          "Sudhina K C"
+        ],
+        "demo": true,
+        "poster": false,
+        "supervisor": "Dr. Ziad Kobti"
+      }
+    ]
+  },
+  {
+    "id": "zone-3",
+    "name": "Zone 3. OI/JLR/SmartMobility",
+    "theme": "HMI, infotainment, vehicle systems, mobility UX",
+    "projects": [
+      {
+        "id": "p-15",
+        "title": "Sports Car Dashboard",
+        "description": "This was part of OIC hackathon project. We created a information and infotainment dashboard for a car.",
+        "team": [
+          "Abdul Rehman Abid",
+          "Muhammad Haroon",
+          "Gurleen Kaur",
+          "Muhammad Nauman Shafique"
+        ],
+        "demo": true,
+        "poster": false
+      },
+      {
+        "id": "p-16",
+        "title": "RetroFit",
+        "description": "The RetroFit Connect project is a \"retro-modern\" digital dashboard designed specifically to bring modern safety, navigation, and electric vehicle telemetry to classic Volkswagen Microbuses (19501979) without ruining their iconic vintage aesthetic. Powered by an NXP i.MX 8 processor and the DragonFire operating system , the system features dual high-resolution screens seamlessly unified behind a single pane of glare-free, optically bonded glass. By applying strict safety-driven design principles, \"neo-skeuomorphic\" vintage-style gauges, and retro typography, the dashboard delivers state-of-the-art digital capabilities while keeping driver distraction to a minimum and preserving the nostalgic charm of the classic VW lifestyle.",
+        "team": [
+          "Anshul Prajapati",
+          "Ved Prajapati",
+          "Vasu Nindroda",
+          "Safanbhai Vhora",
+          "Priyadharshan Reddy",
+          "Munna Chowhan"
+        ],
+        "demo": true,
+        "poster": false,
+        "supervisor": "Dr. Prashanth Ranga"
+      },
+      {
+        "id": "p-17",
+        "title": "Adaptive Off-Road Infotainment Interface",
+        "description": "This project designs an adaptive infotainment interface for off-road vehicles. The system prioritizes critical driving information such as speed, battery status, and terrain conditions while providing secondary features like navigation and music playback. A Unity-based interactive prototype demonstrates context-aware UI behavior designed to reduce driver distraction in rugged environments.",
+        "team": [
+          "Yang Yuanyuan",
+          "Chase Shen",
+          "Dong Xian"
+        ],
+        "demo": true,
+        "poster": false,
+        "supervisor": "Dr. Masoud"
+      },
+      {
+        "id": "p-18",
+        "title": "Luxury Adaptive Infotainment Experience",
+        "description": "We designed a luxury car screen that is simple and calm. Most car screens today are busy and hard to use while driving. Our screen only shows what the driver needs in one quick glance. It adapts based on driving speed. It uses clean design, gold accents on dark navy, and works with voice control. We built it for drivers like Elena, who is 65 and wants things to just work without trouble. The screen is easy to read in bright sun and at night. No tiny text. No hidden menus.",
+        "team": [
+          "Kirtankumar Patek",
+          "Harshkumar Patel",
+          "Jainil Patel",
+          "Mit Gujarati",
+          "Yash Kikani"
+        ],
+        "demo": true,
+        "poster": false,
+        "supervisor": "Prof. Prashanth Cheluvasai Ranga"
+      },
+      {
+        "id": "p-19",
+        "title": "OI-RV Dashboard UI/UX Development",
+        "description": "Our project is based on the internship conducted by Ottawa Infotainment, during which we developed the user interface (UI) and user experience (UX) for the recreational vehicle (RV) dashboard. Our project encompasses not only UI and UX design but also the comprehensive consideration of human-machine interaction (HMI). Ultimately, our project revolves around the design, safety, luxury, and the concept of moving home within a vehicle.",
+        "team": [
+          "Devendra Bahadur Shahi",
+          "Debalina Barua",
+          "Sadika Sayma",
+          "Tanjina Hoque"
+        ],
+        "demo": true,
+        "poster": false,
+        "supervisor": "Dr. Prashanth Cheluvasai Ranga"
+      },
+      {
+        "id": "p-20",
+        "title": "InF1nite Infotainment System",
+        "description": "Industry-sponsored automotive HMI project addressing the intersection of driver safety and passenger engagement. Our three-tier visual hierarchy enables critical information (speed, RPM, gear) to be readable in under 0.5 seconds while cinematic startup sequences and ambient effects create brand moments for secondary audiences. Fully implemented in Figma and Unity with empirical validation proving safety and emotional design coexist without compromise.",
+        "team": [
+          "Shaurya Parshad",
+          "Shrinicketh Karattadipalayam Sridharan",
+          "Reshma Kongarapu",
+          "Timothy Eric Dare James Dare",
+          "Venkata Sai Krishna Kakarla",
+          "Sai Harinath Reddy Yelluri"
+        ],
+        "demo": true,
+        "poster": false,
+        "supervisor": "Prof.Prashanth Cheluvasai Ranga"
+      },
+      {
+        "id": "p-21",
+        "title": "Analyzer",
+        "description": "Optimize the analysis of features",
+        "team": [
+          "Sandeep Kapoor",
+          "Ayeshkant Mallick"
+        ],
+        "demo": true,
+        "poster": false
+      },
+      {
+        "id": "p-22",
+        "title": "VM BUS RETROFIT ( Heritage Tech)",
+        "description": "Integrating a VM Bus retrofit into a 1960s classic transforms a vintage cabin into a high-tech powerhouse by replacing outdated, point-to-point wiring with a streamlined digital communication network. This architecture allows for a digital instrument cluster that mimics the aesthetic of the 1960s while providing precision data and real-time diagnostics, alongside a modern infotainment system that manages everything from climate control to wireless connectivity. By consolidating these functions into a single bus system, you reduce the physical bulk of the wiring harness while gaining the reliability and modularity of a modern vehicle, perfectly blending mid-century soul with 21st-century performance. Would you like me to help you draft a specific feature list for a UI design layout based on this setup?",
+        "team": [
+          "Vishwesh Patel",
+          "Krushil Patel",
+          "Vrushank Rawal",
+          "Kishankumar Mahendrabhai Patel"
+        ],
+        "demo": true,
+        "poster": false,
+        "supervisor": "Dr. Prashanth Cheluvasai Ranga"
+      },
+      {
+        "id": "p-23",
+        "title": "True North - ML Benchmark Platform",
+        "description": "A platform utilising the benchmarks on different hardwares to aid you with suggestions for an optimal pick suitable for your needs.",
+        "team": [
+          "Rithish Ashwin Suresh Kumar",
+          "Mohammad Faisal Alam"
+        ],
+        "demo": true,
+        "poster": false,
+        "supervisor": "Dr. Ranga, Dr. Jiang"
+      }
+    ]
+  },
+  {
+    "id": "zone-4",
+    "name": "Zone 4. Applications & Platforms",
+    "theme": "End-user platforms, systems integration, social impact, general software",
+    "projects": [
+      {
+        "id": "p-24",
+        "title": "LearnTogether",
+        "description": "This collaborative learning platform aims to connect students at the University of Windsor together and foster long-lasting connections that benefit everyone. It is a platform where students can come together to learn, teach, and meet new people through a platform built by students, for students!",
+        "team": [
+          "Tej Baidwan",
+          "Salar Gorgees",
+          "Evan Proulx",
+          "Ali Mehdi"
+        ],
+        "demo": true,
+        "poster": false,
+        "supervisor": "Dr. Olena Syrotkina"
+      },
+      {
+        "id": "p-25",
+        "title": "3Fires (Indigenous Mapping Platform)",
+        "description": "Our project, The 3Fires Platform: Dynamic Mapping of Indigenous Mobility in Southwestern Ontario, aims to improve accessibility to this data by proposing the development of an interactive, web-based mapping system that visualizes Indigenous presence, movement, and settlement across time in Southwestern Ontario. Built using open-source technologies, the platform will serve as an educational community resource that supports historical awareness and reconciliation through accessible digital storytelling.",
+        "team": [
+          "Norika Upadhyay",
+          "Anika Khan",
+          "Chloe Abbruzzese",
+          "Lena Al-Shehmany"
+        ],
+        "demo": true,
+        "poster": false,
+        "supervisor": "Ziad Kobti, Andreas Maniatis"
+      },
+      {
+        "id": "p-26",
+        "title": "Lancer (SHEILD) Bioinformatics",
+        "description": "The Lancer SHEILD is a system developed to manage and analyze the bioinformatics data of Lancer student-athletes at the University of Windsor. It provides a way for coaches to no longer have to track sports health data in excel sheets, but to use a streamlined tool to store and view health data. The main purpose of the project is to enable the athletics department to make use of the data they collect on athletes to generate valuable insights.",
+        "team": [
+          "Humza Khan",
+          "Omar Kadish",
+          "Victoria Asenuga",
+          "Alex Nickerson"
+        ],
+        "demo": true,
+        "poster": false,
+        "supervisor": "Dr Imran Ahmed"
+      },
+      {
+        "id": "p-27",
+        "title": "Multiplayer Game (Lethal Company-inspired)",
+        "description": "Multiplayer game based off Lethal Company",
+        "team": [
+          "Daniel Yun"
+        ],
+        "demo": true,
+        "poster": false,
+        "supervisor": "Arunita Jaekel"
+      },
+      {
+        "id": "p-28",
+        "title": "The Mouse, the Mite, and the Mushroom (Game)",
+        "description": "A 3D role-playing game developed in Unity",
+        "team": [
+          "Arfaa Rashid"
+        ],
+        "demo": true,
+        "poster": false,
+        "supervisor": "Dr. Ryan Scott"
+      },
+      {
+        "id": "p-29",
+        "title": "Hoop Metric Academy Mobile App",
+        "description": "A mobile app designed for the purpose of facilitating a youth basketball academy organization's services involving coaching and running basketball drills.",
+        "team": [
+          "Hamza Hussein"
+        ],
+        "demo": true,
+        "poster": false,
+        "supervisor": "Neil Cesario & Peaches Madarang Cesario"
+      },
+      {
+        "id": "p-30",
+        "title": "URide",
+        "description": "URide was born from a simple observation: university students often travel similar routes but separately, spending money they could save by sharing rides. We built a platform that makes it easy, safe, and social.",
+        "team": [
+          "Wangning Shao",
+          "Chirag Sanjaykumar Ray",
+          "Ahmed Hasnain Mirza",
+          "Faseeh U Rehman Qureshi",
+          "Rohan"
+        ],
+        "demo": true,
+        "poster": false,
+        "supervisor": "Olena Syrotkina"
+      },
+      {
+        "id": "p-31",
+        "title": "RentShield",
+        "description": "RentShield is a secure rental platform designed for international students and newcomers to find verified housing without the risk of scams. By combining identity verification, landlord validation, smart roommate matching, and in-app communication, RentShield ensures a safe, transparent, and trustworthy renting experience. Our mission is to eliminate rental fraud and make finding a home in a new country safe and stress-free.",
+        "team": [
+          "Pruthviraj Rathod",
+          "Gargi Rami",
+          "Ramandeep kaur saini"
+        ],
+        "demo": true,
+        "poster": false,
+        "supervisor": "Olena Syrotkina"
+      },
+      {
+        "id": "p-32",
+        "title": "InMaps",
+        "description": "A navigation system which can give you shortest path in any multi floored building , it works without using gps system and any third party devices.app is build on unity to have seamless navigation and better experience to user.",
+        "team": [
+          "sarvesh solanke",
+          "Hemit Rana",
+          "Jasmeen Kaur",
+          "Charmi Patel"
+        ],
+        "demo": true,
+        "poster": false,
+        "supervisor": "Dr. Kalyani Selvarajah"
+      },
+      {
+        "id": "p-33",
+        "title": "Apple Explorer",
+        "description": "A detailed, searchable database of apple varieties created in collaboration with Agriculture Canada.",
+        "team": [
+          "Maria Aguirre",
+          "Kevin Bui",
+          "Raad Islam",
+          "Aaron Sinn"
+        ],
+        "demo": true,
+        "poster": false,
+        "supervisor": "Dr. Olena Syrotkina"
+      },
+      {
+        "id": "p-34",
+        "title": "CreditStart CA",
+        "description": "An interactive financial navigation platform designed specifically for international students arriving in Canada. Traditional banking treats newcomers as high-risk due to a lack of credit history. This platform solves the 'credit catch-22' by demystifying the Canadian scoring algorithm, providing a gamified 90-day credit-building roadmap, and matching students with high-approval starter banking packages. The goal is to guide newcomers from 'zero history' to a prime credit score in their first year.",
+        "team": [
+          "Revanth Katari",
+          "Kishore Katari"
+        ],
+        "demo": true,
+        "poster": false
+      },
+      {
+        "id": "p-35",
+        "title": "Digital Transformation in Canadian Banking",
+        "description": "This project explores the relationship between technological innovation and economic performance in the Canadian banking sector. Using economic data and time-series analysis, this study focuses on how key economic indicators move together within the banking industry. These findings provide insight into how digital transformation can influence the future of banking in Canada.",
+        "team": [
+          "Nikolina Panzalovic"
+        ],
+        "demo": false,
+        "poster": true,
+        "supervisor": "Dr. Shafaq Khan"
+      }
+    ]
+  },
+  {
+    "id": "zone-5",
+    "name": "Zone 5: AI & Machine Learning",
+    "theme": "Modeling, prediction, NLP, CV, recommender systems, explainability",
+    "projects": [
+      {
+        "id": "p-36",
+        "title": "Aperture - AI Photography Coach",
+        "description": "Aperture AI is an autonomous, privacy-first camera that eliminates the struggle of taking high-quality solo photos. Instead of relying on a timer, it uses real-time computer vision to track 33 body landmarks, measure pose stability, and automatically trigger the shutter at the exact moment you're ready. After capturing the image, an integrated AI coach analyzes composition, lighting, and posture to provide instant feedback. Built with a local-first architecture using Next.js, MediaPipe, and WebAssembly, the system runs directly in the browser to ensure both high performance and biometric privacy. Aperture AI transforms a simple camera utility into an intelligent photography agent that sees, calculates, and captures with precision.",
+        "team": [
+          "Temirlan Rashid"
+        ],
+        "demo": true,
+        "poster": false
+      },
+      {
+        "id": "p-37",
+        "title": "Bob's Analysis",
+        "description": "Bobs Analysis is a simple tool that runs sentiment analysis on steam game reviews, and provides a comprehensive overview of the overall sentiment of each game, and each review as well.",
+        "team": [
+          "Saymon Hwaier",
+          "Nicholas Flay",
+          "Niko Linfield",
+          "Umayer Khan"
+        ],
+        "demo": true,
+        "poster": false,
+        "supervisor": "Dr. Prashanth Cheluvasai Ranga"
+      },
+      {
+        "id": "p-38",
+        "title": "Sentiment Analysis on X/Twitter Posts",
+        "description": "The subject of this project is sentiment analysis of social media posts using AI. Sentiment analysis (also known as opinion mining) involves using machine learning (ML) and natural language processing (NLP) to analyze text and extract the feeling conveyed by the text. Our group's project applies sentiment analysis models to data from X/Twitter to extract the overall opinion of the userbase on various trending topics from recent history.",
+        "team": [
+          "Huzaifa Shafiq",
+          "Angela Lan",
+          "Ayaan Ahmed"
+        ],
+        "demo": true,
+        "poster": false,
+        "supervisor": "Prashanth Cheluvasai Ranga"
+      },
+      {
+        "id": "p-39",
+        "title": "Reddit Stock Sentiment Analysis Tool",
+        "description": "Using a fine tuned DeBERTa AI model, we are analyzing the sentiment of various stocks using Reddit posts.",
+        "team": [
+          "Yazan Hailat",
+          "Ahmad Salman",
+          "Samarveer Manku"
+        ],
+        "demo": true,
+        "poster": false,
+        "supervisor": "Prashanth Cheluvasai Ranga"
+      },
+      {
+        "id": "p-40",
+        "title": "MusicRex",
+        "description": "Music Rex is an interactive music recommendation platform that helps users discover new songs by analyzing their favorite artists, genres, and current mood.",
+        "team": [
+          "Lance Samonte",
+          "Nathan Serre",
+          "Tory Provenzano",
+          "Cody Taylor"
+        ],
+        "demo": true,
+        "poster": false,
+        "supervisor": "Prashanth Cehluvasai Ranga (Prof Ranga)"
+      },
+      {
+        "id": "p-41",
+        "title": "Nutritional Info Identifier",
+        "description": "A food pokedex app that scans food and spits out facts and recipes",
+        "team": [
+          "Ada Taing",
+          "Kimberly Eak",
+          "Trina Das"
+        ],
+        "demo": true,
+        "poster": false,
+        "supervisor": "Dr. Jessica Chen"
+      },
+      {
+        "id": "p-42",
+        "title": "GrowLiv: AI-Powered Agricultural Pest Detection",
+        "description": "GrowLiv is an AI-powered computer vision system designed to detect and identify agricultural insect pests from a single image. The system combines object detection, segmentation, and classification models to analyze insect images, with a focus on pests relevant to Ontario agriculture.",
+        "team": [
+          "Shafiul Kalam",
+          "Ali Kalakech",
+          "Taha Shahzad"
+        ],
+        "demo": true,
+        "poster": false,
+        "supervisor": "Dr. Kobti and Dr. Akhshik"
+      },
+      {
+        "id": "p-43",
+        "title": "AI-Driven Greenhouse Climate Control",
+        "description": "Utilizing deep learning models to predict greenhouse climate conditions and optimize environmental control strategies. Provides a web dashboard allowing users to run predictions, visualize trends, analyze model explainability, and simulate climate control scenarios.",
+        "team": [
+          "Chris Bolton",
+          "Nicholas Cecchin",
+          "Htoo Myat Soe Paing"
+        ],
+        "demo": true,
+        "poster": false,
+        "supervisor": "Xiaobu Yuan and Rustem Izmailov"
+      },
+      {
+        "id": "p-44",
+        "title": "S.M.A.R.T AI Avatar Framework",
+        "description": "Our project is about how the new Uwindsor S.M.A.R.T online learning platform will have a 3D AI Avatar that will interact and react with the user. In this project we investigated how the avatar will engage with the user and base their face expression and body posture based on users interaction, while diving through and experimemting with different 3D AI model frameworks, from legacy to modern.",
+        "team": [
+          "Yahia Hassan",
+          "Aarsal Masoodi",
+          "Sudarshan Niroula"
+        ],
+        "demo": true,
+        "poster": false,
+        "supervisor": "Xiaobu Yuan"
+      },
+      {
+        "id": "p-45",
+        "title": "Mini Professor AI",
+        "description": "Think of Mini Professor as an always-available, personal tutor. It lets professors turn their static PDFs and slides into an interactive AI chat. Students get instant, reliable answers backed by exact source citations, so they spend less time searching and more time actually learning.",
+        "team": [
+          "Farhan Anwar Mohammed"
+        ],
+        "demo": true,
+        "poster": false
+      },
+      {
+        "id": "p-46",
+        "title": "MindLog",
+        "description": "MindLog is a smart mobile app that turns your everyday thoughts into meaningful stories. Instead of struggling to write long diary entries, you can simply speak or type naturally about your day'just like talking to a friend. Using powerful Artificial Intelligence, MindLog listens to your raw thoughts and automatically transforms them into clear, well-structured journal entries. It captures important moments, emotions, reflections, and lessons, helping you understand your day better without any extra effort. As days turn into weeks and months, MindLog builds a personal digital diary that grows with you. You can revisit past memories, edit entries, and reflect on your journey over time. This makes journaling easy, engaging, and stress-free, even for users who don't enjoy writing.",
+        "team": [
+          "Kalyani Selvarajah"
+        ],
+        "demo": true,
+        "poster": false,
+        "supervisor": "Dr. Kalyani Selvarajah"
+      },
+      {
+        "id": "p-47",
+        "title": "DreamTale",
+        "description": "DreamTale is a creative mobile app that lets users build and explore their own imaginary universe with the help of Artificial Intelligence. Instead of just reading stories, users become the creator of their own dream world. Users can design their world by setting its rules, creating characters, and defining the basic storyline. Once the world is created, DreamTale uses AI to automatically generate new story events and plot developments every day, making the world feel alive and constantly evolving. What makes DreamTale unique is that users are always in control. They can step in at any time to change the story, guide characters, or introduce new ideas. The story continues endlessly, growing richer over time, until the user decides to bring it to an end. DreamTale turns imagination into an interactive experience, blending creativity, storytelling, and AI into one immersive adventure.",
+        "team": [
+          "Kalyani Selvarajah"
+        ],
+        "demo": true,
+        "poster": false,
+        "supervisor": "Dr. Kalyani Selvarajah"
+      },
+      {
+        "id": "p-48",
+        "title": "AI Student Burnout Risk Predictor",
+        "description": "An interactive web app that predicts student burnout risk from 6 lifestyle inputs (sleep, stress, workload, activity, and social interaction) using a multimodal machine learning model trained on real StudentLife sensor data. It shows your risk level (Low / Medium / High), a risk probability meter, the top contributing factors via SHAP explainability, and personalised lifestyle recommendations.",
+        "team": [
+          "Md Israk Hossain",
+          "Jaimil Kothari",
+          "Sahitya Nagar",
+          "Amol Dhami",
+          "Ronit Rakeshkumar Lad"
+        ],
+        "demo": true,
+        "poster": false,
+        "supervisor": "Dr. Kalyani Selvarajah"
+      },
+      {
+        "id": "p-49",
+        "title": "Rural Area Health Care System",
+        "description": "This project is a simple web-based healthcare system designed for rural areas. It predicts diseases like diabetes, blood pressure, asthma, cold, and gastroenteritis based on symptoms using machine learning. The system is easy to use, works offline, and helps in early diagnosis where medical facilities are limited.",
+        "team": [
+          "SAI SRINIVAS UPPARA"
+        ],
+        "demo": true,
+        "poster": false
+      },
+      {
+        "id": "p-50",
+        "title": "FitTrack",
+        "description": "Solving Data Fatigue for fitness tracking. We are the most tracked generation in history, yet we are also the most confused. The core problem is Data Fatigue: existing apps collect massive amounts of numbers but leave the heavy burden of interpretation entirely on the user. We built FitTrack to solve this last mile problem. Our motivation was to create a bridge between raw biological signals like HRV, sleep architecture, and stress loads'and actual human behavior. We wanted to move away from static charts and toward a Daily Decision System that tells you what to do now. We learned that Natural Language is the New UI. By replacing rigid database search bars with semantic intake where a user can simply type in natural language we reduced logging friction dramatically. The Logic Pipeline The novelty of our project is the Deterministic'Generative Hybrid. We don't just ask an AI for generic advice; we compute hard metrics first to ensure the coaching is grounded. Data Ingestion: We pull real-time health signals (sleep stages, resting heart rate, HRV) via Google Health integrations. Deterministic Calculation: We compute hard metrics locally on the backend. For example, we calculate Sleep Debt to estimate recovery needs. LLM Synthesis: These hard facts are passed into openai_service.py to generate categorized, narrative coaching tips. Transparency builds trust. By showing the Energy Curve (a visual representation of daily energy windows), we aren't just giving orders we're teaching users how to interpret their own signals. Existing solutions are either too simple (basic trackers) or too complex (data autopsies). FitTrack wins because it turns the noise of biometrics into the clarity of a conversations.",
+        "team": [
+          "Rustem Izmailov",
+          "Nishant Gowthaman",
+          "Vimanga"
+        ],
+        "demo": true,
+        "poster": false
+      },
+      {
+        "id": "p-51",
+        "title": "Defect Detection in Plastic Pipe Welds",
+        "description": "Polyethylene plastic pipes are commonly used to transport water and gas. These pipes are frequently connected using electrofusion, a process whereby a sleeve with built-in electric heating elements is fused to the ends of two pipes. The success or failure of this weld can be seen using ultrasonic scans. However, these scans are often difficult to interpret. The goal of this work was to develop a machine learning tool to automatically analyze these scans and detect whether or not a weld was defective.",
+        "team": [
+          "Faraan Rashid"
+        ],
+        "demo": false,
+        "poster": true,
+        "supervisor": "Dr. Ryan Scott"
+      },
+      {
+        "id": "p-52",
+        "title": "Transparent Intelligent Decision Support System",
+        "description": "This work presents a an Intelligent Decision Support System (IDSS) integrating Natural Language Processing (NLP), Automated Machine Learning (AutoML), and Explainable AI (XAI) for financial data analytics.",
+        "team": [
+          "Saimon Thegai"
+        ],
+        "demo": false,
+        "poster": true,
+        "supervisor": "Dr. Shafaq Khan"
+      },
+      {
+        "id": "p-53",
+        "title": "PCOSCare",
+        "description": "PCOSCare: A Hybrid AI Framework for Continuous and Adaptive PCOS Management PCOSCare is an intelligent web-based platform designed to improve the early detection and long-term management of Polycystic Ovary Syndrome (PCOS). Instead of providing a simple yes/no diagnosis, our system uses a Machine Learning model (Random Forest) to generate a personalized percentage-based risk score based on lifestyle, clinical, and hormonal factors.",
+        "team": [
+          "Parmida Khashayar"
+        ],
+        "demo": false,
+        "poster": true,
+        "supervisor": "Dr.khan"
+      },
+      {
+        "id": "p-54",
+        "title": "Anomaly Detection (DINOv2)",
+        "description": "This project explores unsupervised anomaly detection in industrial images using pre-trained self-supervised Vision Transformers, specifically DINOv2. The goal is to detect and localize defects in manufacturing datasets (MVTec AD) without any defect labels, generating interpretable anomaly heatmaps. The work aligns with the project description: leveraging self-supervised models like DINO, fine-tuning for anomaly maps, and benchmarking against conventional methods.",
+        "team": [
+          "Arbaz Sikandar",
+          "Affan Amin"
+        ],
+        "demo": false,
+        "poster": true,
+        "supervisor": "Dr. Shaon Shuvo"
+      },
+      {
+        "id": "p-55",
+        "title": "Trusting AI in Healthcare",
+        "description": "A poster on trust, transparency, and responsible use of artificial intelligence in healthcare settings (placeholder summary until final copy is available).",
+        "team": [
+          "John Doe"
+        ],
+        "demo": false,
+        "poster": true
+      }
+    ]
+  }
+]

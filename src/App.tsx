@@ -233,7 +233,7 @@ export default function App() {
             <button onClick={() => scrollToSection('gallery')} className={navLinkClass(activeSectionIndex === 2)}>
               Gallery
             </button>
-            <button onClick={() => showSelectedProjects ? navigate('/selected-projects') : scrollToSection('submit')} className={navLinkClass(activeSectionIndex === 3)}>
+            <button onClick={() => scrollToSection('submit')} className={navLinkClass(activeSectionIndex === 3)}>
               {showSelectedProjects ? 'Selected Projects' : 'Apply'}
             </button>
             <button onClick={() => scrollToSection('attend')} className={navLinkClass(activeSectionIndex === 4)}>
@@ -310,7 +310,7 @@ export default function App() {
               ))}
               {showSelectedProjects ? (
                 <button
-                  onClick={() => { setMobileMenuOpen(false); navigate('/selected-projects'); }}
+                  onClick={() => scrollToSection('submit')}
                   className={`text-left py-3 px-4 rounded-xl text-lg font-medium transition-all min-h-[48px] text-gray-400 hover:text-white hover:bg-white/5`}
                 >
                   Selected Projects
@@ -489,14 +489,24 @@ export default function App() {
                       transition={{ delay: 0.8, duration: 0.8 }}
                       className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-10 md:mb-16"
                     >
-                      <a 
-                        href={PROJECT_SUBMISSION_URL} 
-                        target="_blank" 
-                        rel="noopener noreferrer"
-                        className="cta-glow-pulse px-8 py-4 rounded-xl bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 transition-all duration-300 text-lg font-medium hover:shadow-[0_0_32px_rgba(139,92,246,0.55),0_0_48px_rgba(59,130,246,0.25)] hover:scale-[1.02]"
-                      >
-                        Submit Your Project
-                      </a>
+                      {showSelectedProjects ? (
+                        <button
+                          type="button"
+                          onClick={() => scrollToSection('submit')}
+                          className="cta-glow-pulse px-8 py-4 rounded-xl bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 transition-all duration-300 text-lg font-medium hover:shadow-[0_0_32px_rgba(139,92,246,0.55),0_0_48px_rgba(59,130,246,0.25)] hover:scale-[1.02]"
+                        >
+                          View Selected Projects
+                        </button>
+                      ) : (
+                        <a
+                          href={PROJECT_SUBMISSION_URL}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="cta-glow-pulse px-8 py-4 rounded-xl bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 transition-all duration-300 text-lg font-medium hover:shadow-[0_0_32px_rgba(139,92,246,0.55),0_0_48px_rgba(59,130,246,0.25)] hover:scale-[1.02]"
+                        >
+                          Submit Your Project
+                        </a>
+                      )}
                       <button 
                         onClick={() => scrollToSection('about')}
                         className="px-8 py-4 rounded-xl border-2 border-white/10 hover:border-white/30 hover:bg-white/5 transition-all duration-300 text-lg hover:scale-[1.02] hover:shadow-[0_0_20px_rgba(255,255,255,0.06)]"
@@ -1034,7 +1044,7 @@ export default function App() {
                   About
                 </button>
                 <button onClick={() => scrollToSection('submit')} className="block text-gray-400 hover:text-white transition-all duration-200 hover:[text-shadow:0_0_12px_rgba(255,255,255,0.35),0_0_24px_rgba(192,132,252,0.4),0_0_36px_rgba(139,92,246,0.2)]">
-                  Apply
+                  {showSelectedProjects ? 'Selected Projects' : 'Apply'}
                 </button>
                 <button onClick={() => scrollToSection('attend')} className="block text-gray-400 hover:text-white transition-all duration-200 hover:[text-shadow:0_0_12px_rgba(255,255,255,0.35),0_0_24px_rgba(192,132,252,0.4),0_0_36px_rgba(139,92,246,0.2)]">
                   Attend

@@ -4,3 +4,6 @@ dist/
 npm-debug.log*
 .env
 .idea/
+
+# Local datasets / spreadsheets (not committed) — repo root only
+/data/
