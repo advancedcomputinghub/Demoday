@@ -25,7 +25,9 @@ const FORM_FILE = path.join(root, 'data', 'Selected_Projects(Form Responses 1).c
 const POSTER_FILE = path.join(root, 'data', 'Selected_Projects(Poster).csv');
 const OUT_MERGED_CSV = path.join(root, 'data', 'selected-projects-merged.csv');
 const OUT_JSON = path.join(root, 'src', 'data', 'selected-projects.json');
-const FORCE_TBA_TITLES = new Set(['mindlog', 'dreamtale']);
+const FORCE_TBA_TITLES = new Set([
+  // Add normalized titles here when a project must show Team: TBA.
+]);
 const FORCE_POSTER_ONLY_TITLES = new Set([
   'secure blockchain integrated federated learning for iot',
   'sentinelline ai driven malware triage',
