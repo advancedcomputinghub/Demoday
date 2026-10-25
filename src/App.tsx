@@ -4,14 +4,14 @@ import { Carousel } from './components/ui/carousel';
 import { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence, useInView } from 'motion/react';
 import { useLocation, useNavigate } from 'react-router-dom';
-import {SUBMISSION_DEADLINE_DATE, EVENT_DATE, EVENT_END_DATE, DEMO_DAY_SEASON, DEMO_DAY_YEAR} from './constants/dates';
+import {SUBMISSION_DEADLINE_DATE, EVENT_DATE, EVENT_END_DATE, EVENT_TIME_RANGE, EVENT_VENUE, DEMO_DAY_SEASON, DEMO_DAY_YEAR} from './constants/dates';
 const SECTION_IDS = ['hero', 'about', 'gallery', 'submit', 'attend', 'schedule', 'faq', 'meet-the-team'] as const;
 
 const scheduleStaggerVariants = { hidden: {}, visible: { transition: { staggerChildren: 0.065, delayChildren: 0.12 } } };
 const scheduleItemVariants = { hidden: { opacity: 0, y: 16 }, visible: { opacity: 1, y: 0, transition: { duration: 0.4 } } };
 
-const PARTICIPANT_REGISTRATION_URL = 'https://docs.google.com/forms/d/e/1FAIpQLSelqknwzF-ht4gNg1FALEAf7pL-A8gUeTTS9CnCIv5bBvr4nQ/viewform';
-const PROJECT_SUBMISSION_URL = 'https://docs.google.com/forms/d/e/1FAIpQLSevBxky8AILviHbGyK3XLmtiOqw8ddW8tQ0AIy7ZLS1MInYBg/viewform';
+const PARTICIPANT_REGISTRATION_URL = 'https://forms.gle/4f4U2Qum3Yvm5QF78';
+const PROJECT_SUBMISSION_URL = 'https://forms.gle/1uk9m3iUVKx1oXhm8';
 
 // This just takes the names and appends it to the path, so to add new images you can just drop them in the folder and name them in the format "1.jpg", "2.jpg", etc. for correct ordering. Supported formats are jpg and jpeg.
 const imageModules = import.meta.glob<{ default: string }>('/public/prev-demoday-images/*.{jpg,jpeg}', { eager: true });
@@ -441,7 +441,7 @@ export default function App() {
                             animate={{ opacity: 1 }}
                             transition={{ delay: 1.4, duration: 0.6 }}
                           >
-                            Advanced Computing Hub, 300 Ouellette Ave
+                            Advanced Computing and Innovation Hub, 300 Ouellette Ave
                           </motion.span>
                         </div>
                       )}
@@ -527,11 +527,11 @@ export default function App() {
                       </div>
                       <div className="flex items-start gap-1.5">
                         <MapPin className="w-5 h-5 text-blue-400 mt-0.5 flex-shrink-0" />
-                        <span>Advanced Computing Hub, University of Windsor</span>
+                        <span>{EVENT_VENUE}</span>
                       </div>
                       <div className="flex items-center gap-2">
                         <Clock className="w-5 h-5 text-purple-400" />
-                        <span>9:30 AM – 12:30 PM</span>
+                        <span>{EVENT_TIME_RANGE}</span>
                       </div>
                     </motion.div>
                   </motion.div>
@@ -585,7 +585,7 @@ export default function App() {
                   </div>
                   <div className="p-4 md:p-5 rounded-2xl bg-gradient-to-br from-blue-500/10 to-blue-500/5 border border-blue-500/20 transition-all duration-300 hover:border-blue-500/40 hover:shadow-[0_0_24px_rgba(59,130,246,0.28)]">
                     <CalendarCheck className="w-8 h-8 md:w-9 md:h-9 text-blue-400 mb-2 md:mb-3" />
-                    <div className="text-2xl md:text-3xl font-bold mb-1">14th</div>
+                    <div className="text-2xl md:text-3xl font-bold mb-1">15th</div>
                     <div className="text-gray-400 text-sm md:text-base">Event</div>
                   </div>
                 </div>
@@ -727,7 +727,7 @@ export default function App() {
                 Register to <span className="bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent">Attend</span>
               </h2>
               <p className="text-xl text-gray-300 mb-8 leading-relaxed">
-                Industry professionals, faculty members, and guests are invited to attend CS Demo Day – {DEMO_DAY_SEASON} {DEMO_DAY_YEAR}. Please complete the form below to register your participation. <span className="text-white font-medium">{EVENT_DATE.toDateString()} · 9:30 AM – 12:30 PM</span>
+                Industry professionals, faculty members, and guests are invited to attend CS Demo Day – {DEMO_DAY_SEASON} {DEMO_DAY_YEAR}. Please complete the form below to register your participation. <span className="text-white font-medium">{EVENT_DATE.toDateString()} · {EVENT_TIME_RANGE}</span>
               </p>
               <div className="space-y-4 mb-8">
                 <div className="flex items-start gap-3">
@@ -746,7 +746,7 @@ export default function App() {
                   <div className="w-6 h-6 rounded-full bg-blue-500/20 border-2 border-blue-500 flex items-center justify-center mt-1 flex-shrink-0">
                     <div className="w-2 h-2 rounded-full bg-blue-500"></div>
                   </div>
-                  <p className="text-gray-300">Advanced Computing Hub, 300 Ouellette Ave, 4th Floor, University of Windsor</p>
+                  <p className="text-gray-300">Advanced Computing and Innovation Hub, School of Computer Science, 300 Ouellette Ave, 4th Floor, University of Windsor</p>
                 </div>
               </div>
               <a
@@ -769,7 +769,7 @@ export default function App() {
           <div className="text-center mb-10 md:mb-16">
             <span className="text-sm uppercase tracking-wider text-purple-400 font-medium">Day of the Event</span>
             <h2 className="text-3xl md:text-5xl mt-3 md:mt-4 mb-4 [text-shadow:0_0_24px_rgba(192,132,252,0.25),0_0_48px_rgba(139,92,246,0.15)]">Schedule</h2>
-            <p className="text-gray-400 text-lg">{EVENT_DATE.toDateString()} · Advanced Computing Hub, University of Windsor</p>
+            <p className="text-gray-400 text-lg">{EVENT_DATE.toDateString()} · {EVENT_VENUE}</p>
           </div>
 
           <motion.div
@@ -780,7 +780,8 @@ export default function App() {
             variants={scheduleStaggerVariants}
           >
             {[
-              { time: '9:30 AM', tag: 'Registration', tagBlue: true, title: 'Registration', desc: 'Check-in and registration for attendees and teams.' },
+              { time: '9:00 AM', tag: 'Registration', tagBlue: true, title: 'Registration', desc: 'Check-in and registration for attendees and teams.' },
+              { time: '9:30 AM', tag: 'Keynote', tagBlue: false, title: 'The Trajectory of Automotive Cybersecurity and the Role of AI', desc: 'Keynote talk by Dr. Andre Weimerskirch, Block Harbour.' },
               { time: '10:00 AM', tag: 'Opening', tagBlue: false, title: 'Opening Ceremony & Demo Sessions', desc: 'Welcome remarks and beginning of project demos.' },
               { time: '12:00 PM', tag: 'Awards', tagBlue: false, title: 'Award Ceremony', desc: 'Announcing winners and recognition of outstanding projects.' },
               { time: '12:30 PM', tag: 'Closing', tagBlue: true, title: 'Closing & Networking', desc: 'Event concludes. Informal networking with guests and recruiters.', last: true },
@@ -852,7 +853,7 @@ export default function App() {
               </AccordionTrigger>
               <AccordionContent className="w-full px-4 py-4 md:px-6 md:py-6 bg-white/[0.03] rounded-b-xl border-t border-white/10">
                 <p className="text-gray-300 leading-relaxed">
-                  {EVENT_DATE.toDateString()}, from 9:30 AM to 12:30 PM at the School of Computer Science Advanced Computing Hub, 300 Ouellette Avenue, 4th floor.
+                  {EVENT_DATE.toDateString()}, from 9:00 AM to 12:30 PM at the School of Computer Science Advanced Computing and Innovation Hub, 300 Ouellette Avenue, 4th floor.
                 </p>
               </AccordionContent>
             </AccordionItem>
@@ -863,7 +864,7 @@ export default function App() {
               </AccordionTrigger>
               <AccordionContent className="w-full px-4 py-4 md:px-6 md:py-6 bg-white/[0.03] rounded-b-xl border-t border-white/10">
                 <p className="text-gray-300 leading-relaxed">
-                  You can set up your desk between 8:00 AM and 9:00 AM. Please ensure you bring all necessary equipment and materials before the event begins at 9:30 AM.
+                  You can set up your desk between 8:00 AM and 9:00 AM. Please ensure you bring all necessary equipment and materials before the event begins at 9:00 AM.
                 </p>
               </AccordionContent>
             </AccordionItem>
@@ -1070,11 +1071,11 @@ export default function App() {
                 </div>
                 <div className="flex items-start gap-1.5">
                   <MapPin className="w-5 h-5 text-blue-400 mt-0.5 flex-shrink-0" />
-                  <span>Advanced Computing Hub, University of Windsor</span>
+                  <span>{EVENT_VENUE}</span>
                 </div>
                 <div className="flex items-start gap-2">
                   <Clock className="w-5 h-5 text-purple-400 mt-0.5 flex-shrink-0" />
-                  <span>9:30 AM – 12:30 PM</span>
+                  <span>{EVENT_TIME_RANGE}</span>
                 </div>
               </div>
             </div>

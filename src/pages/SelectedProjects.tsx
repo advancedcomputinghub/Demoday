@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Calendar, MapPin, Clock, Menu, X } from 'lucide-react';
 import { AnimatePresence, motion } from 'motion/react';
-import { EVENT_DATE, SUBMISSION_DEADLINE_DATE } from '../constants/dates';
+import { EVENT_DATE, EVENT_TIME_RANGE, EVENT_VENUE, SUBMISSION_DEADLINE_DATE } from '../constants/dates';
 import zonesData from '../data/selected-projects.json';
 
 //const SUBMISSION_DEADLINE_DATE = new Date('2026-03-20T12:00:00'); // Mar 20, 2026 at noon
@@ -521,11 +521,11 @@ export default function SelectedProjects() {
                 </div>
                 <div className="flex items-start gap-1.5">
                   <MapPin className="w-5 h-5 text-blue-400 mt-0.5 flex-shrink-0" />
-                  <span>Advanced Computing Hub, University of Windsor</span>
+                  <span>{EVENT_VENUE}</span>
                 </div>
                 <div className="flex items-start gap-2">
                   <Clock className="w-5 h-5 text-purple-400 mt-0.5 flex-shrink-0" />
-                  <span>9:30 AM – 12:30 PM</span>
+                  <span>{EVENT_TIME_RANGE}</span>
                 </div>
               </div>
             </div>

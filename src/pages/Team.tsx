@@ -2,7 +2,7 @@ import { useRef, useEffect, useState } from 'react';
 import { motion, useInView } from 'motion/react';
 import { Calendar, MapPin, Clock, Menu, X } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
-import { SUBMISSION_DEADLINE_DATE, EVENT_DATE } from '../constants/dates';
+import { SUBMISSION_DEADLINE_DATE, EVENT_DATE, EVENT_TIME_RANGE, EVENT_VENUE } from '../constants/dates';
 
 const teamImageModules = import.meta.glob<{ default: string }>('/public/team-pics/*.{jpg,jpeg,png}', { eager: true });
 
@@ -537,11 +537,11 @@ export default function Team() {
                 </div>
                 <div className="flex items-start gap-1.5">
                   <MapPin className="w-5 h-5 text-blue-400 mt-0.5 flex-shrink-0" />
-                  <span>Advanced Computing Hub, University of Windsor</span>
+                  <span>{EVENT_VENUE}</span>
                 </div>
                 <div className="flex items-start gap-2">
                   <Clock className="w-5 h-5 text-purple-400 mt-0.5 flex-shrink-0" />
-                  <span>9:30 AM – 12:30 PM</span>
+                  <span>{EVENT_TIME_RANGE}</span>
                 </div>
               </div>
             </div>
